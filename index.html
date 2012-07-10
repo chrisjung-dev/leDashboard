@@ -28,32 +28,13 @@
 	<body>
 
 		<header><h1>leDashboard</h1></header>
+
+		<section id="feeds"></section>
+
+
 		<div id="debug"></div>
 	</body>
 
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script>
-        $(function(){
-
-			try {
-				less.watch();
-			} catch( e ){};
-
-			console.log( feeds );
-
-			
-			for ( feed in feeds ) {
-				$.ajax({
-					url: 'get_feed.php',
-					data: {
-						'feed_url': feeds[ feed ].feedUrl
-					}, 
-					type: 'POST',
-					success: function( data ){
-						$('#debug').text( data );
-					}
-				});
-			}
-        });
-    </script>
+	<script src="js/action.js"></script>
 </html>
