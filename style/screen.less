@@ -30,6 +30,7 @@ header {
 
 	.feed {
 		display: inline-block;
+		position: relative;
 		padding: 1em;
 		margin: 0.5em;
 		max-width: 20%;
@@ -37,7 +38,20 @@ header {
 		background: @white;
 
 		box-shadow: 0 0 0.5em lighten( @textColor, 20% );
+
+		.buttons {
+			position: absolute;
+			top: 0.5em;
+			right: 0.5em;
+			color: @white;
+
+			& span {
+				background: @textColor;
+				font-size: 0.6em;
+				border-radius: 5px;
+				padding: 0.5em;
+			}
+		}
 	}
-
-
+	
 }

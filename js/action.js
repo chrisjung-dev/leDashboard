@@ -1,4 +1,8 @@
 $(function(){
+
+	/**
+	 *	Get all the feeds and create "Widgets" for them
+	 */
 	for ( feed in feeds ) {
 
 		console.log( feed );
@@ -7,7 +11,7 @@ $(function(){
 			$('<div/>', {
 				'id': feed,
 				'class': 'feed',
-				'text': feeds[ feed ].title
+				'html': '<h2>' + feeds[ feed ].title + '</h2><div></div>'
 			})
 		);
 
@@ -21,5 +25,15 @@ $(function(){
 				$('#debug').text( data );
 			}
 		});
-	}
+	}; // end widget creation
+
+	$( '.feed', '#feeds' ).hover(
+		function(){
+			var buttons = '<span class="buttons"><span class="reload">reload</span> <span class="toggle">mini/maxi</span></span>';
+			$( this ).prepend( buttons );
+		},
+		function(){
+			$( this ).find( '.buttons' ).remove();
+		}
+	)
 });
