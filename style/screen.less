@@ -6,6 +6,7 @@
  */
 @import url( "http://fonts.googleapis.com/css?family=Droid+Sans:400,700" );
 
+@white: #fff;
 @bodyBgColor: #eee;
 @textColor: #333;
 
@@ -24,4 +25,19 @@ header {
 	h1 {
 		border-bottom: 2px solid @textColor;
 	}
+}
+#feeds {
+
+	.feed {
+		display: inline-block;
+		padding: 1em;
+		margin: 0.5em;
+		max-width: 20%;
+
+		background: @white;
+
+		box-shadow: 0 0 0.5em lighten( @textColor, 20% );
+	}
+
+
 }

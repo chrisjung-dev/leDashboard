@@ -6,6 +6,7 @@ $(function(){
 		$( '#feeds' ).append( 
 			$('<div/>', {
 				'id': feed,
+				'class': 'feed',
 				'text': feeds[ feed ].title
 			})
 		);
