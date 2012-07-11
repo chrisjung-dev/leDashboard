@@ -68,6 +68,11 @@ get_single_feed_content = function( _feed ) {
 	});
 }
 
+/**
+ * reload a single feed
+ * - triggered by reload button in feeds
+ * - triggered for all feeds by reloadall button
+ */
 reload_single_feed = function(){
 	/**
 	 * remove old list and add loading icon

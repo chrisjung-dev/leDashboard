@@ -17,13 +17,13 @@ $(function(){
 
 			var reloadbutton = $( '<span/>', {
 				'text': 'reload',
-				'class': 'reload',
+				'class': 'button reload',
 				'click': reload_single_feed
 			}).appendTo( buttons );
 			
 			var togglebutton = $( '<span/>', {
 				'text': 'mini/maxi',
-				'class': 'toggle'
+				'class': 'button toggle'
 			}).appendTo( buttons );
 		
 			$( this ).prepend( buttons );
@@ -33,7 +33,7 @@ $(function(){
 		}
 	)
 
-	$( '#menu .reloadall' ).click( function() {
+	$( 'header .reloadall' ).click( function() {
 		$( '#feeds .feed > h2' ).each( reload_single_feed )
 	});
 });
