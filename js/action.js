@@ -1,63 +1,13 @@
 $(function(){
-
+	
+	/**
+	 * initially render all the widgets and get the contents
+	 */
+	render_feed_widgets();
 
 	/**
-	 * todo: wrap this in function to be able to 
-	 * reload all feeds :-)
+	 * 	Show / hide buttons when hovering the feed widgets
 	 */
-
-	/**
-	 *	Get all the feeds and create "Widgets" for them
-	 */
-	for ( feed in feeds ) {
-
-		$( '#feeds' ).append( 
-			$('<div/>', {
-				'id': feed,
-				'class': 'feed',
-				'html': '<h2><a href="' + feeds[ feed ].url  + '">' + feeds[ feed ].title + '</a></h2><div></div>'
-			})
-		);
-
-		$.ajax({
-			url: 'get_feed.php',
-			dataType: 'json',
-			data: {
-				'feed_id' : feed,
-				'feed_url': feeds[ feed ].feedUrl
-			},
-			type: 'POST',
-			success: function( json ){
-				
-				$feed_id = json.meta.id;
-				
-				$ul = $( '<ul/>' );
-				$( '#' + $feed_id + ' div' ).append( $ul );
-			
-				for( item in json.data ) {
-					$li = $( '<li/>', {
-						'title': json.data[ item ][ 'description' ]
-					});
-
-					$a = $( '<a/>', {
-						'text': json.data[ item ][ 'title' ],
-						'href': json.data[ item ][ 'permalink' ]
-					});
-					$li.append( $a );
-					$ul.append( $li );
-
-					// use enties -1 since "item" will be an index
-					if( feeds[ $feed_id ].entries && 
-						item >= feeds[ $feed_id  ].entries-1 ) 
-					{
-						//console.log( 'maximum reached' );
-						break;
-					}
-				}
-			}
-		});
-	}; // end widget creation
-
 	$( '.feed', '#feeds' ).hover(
 		function(){
 			
@@ -67,7 +17,8 @@ $(function(){
 
 			var reloadbutton = $( '<span/>', {
 				'text': 'reload',
-				'class': 'reload'
+				'class': 'reload',
+				'click': reload_single_feed
 			}).appendTo( buttons );
 			
 			var togglebutton = $( '<span/>', {
@@ -81,4 +32,8 @@ $(function(){
 			$( this ).find( '.buttons' ).remove();
 		}
 	)
+
+	$( '#menu .reloadall' ).click( function() {
+		$( '#feeds .feed > h2' ).each( reload_single_feed )
+	});
 });
