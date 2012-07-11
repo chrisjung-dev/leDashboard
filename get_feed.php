@@ -1,9 +1,12 @@
 <?php
 	/*
-	 * import simplepie
+	 * import simplepie for feed handling
 	 */
-	require_once( 'simplepie_1.3.mini.php' );
+	require_once( 'inc/simplepie_1.3.mini.php' );
 
+	/*
+	 *	todo: sanatize the variables
+	 */
 	$feed_url = $_POST[ 'feed_url'];
 	$feed_id  = $_POST[ 'feed_id' ];
 

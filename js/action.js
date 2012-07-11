@@ -1,5 +1,11 @@
 $(function(){
 
+
+	/**
+	 * todo: wrap this in function to be able to 
+	 * reload all feeds :-)
+	 */
+
 	/**
 	 *	Get all the feeds and create "Widgets" for them
 	 */
@@ -9,7 +15,7 @@ $(function(){
 			$('<div/>', {
 				'id': feed,
 				'class': 'feed',
-				'html': '<h2>' + feeds[ feed ].title + '</h2><div></div>'
+				'html': '<h2><a href="' + feeds[ feed ].url  + '">' + feeds[ feed ].title + '</a></h2><div></div>'
 			})
 		);
 
