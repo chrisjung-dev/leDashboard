@@ -5,20 +5,25 @@
 	require_once( 'simplepie_1.3.mini.php' );
 
 	$feed_url = $_POST[ 'feed_url'];
+	$feed_id  = $_POST[ 'feed_id' ];
 
 	$feed = new SimplePie();
 	$feed->set_feed_url( $feed_url );
 	$feed->init();
 	$feed->handle_content_type();
 
+	$output[ 'meta' ][ 'id' ] = $feed_id;
+
 foreach ($feed->get_items() as $item):
 	 
-	$output = '<div class="item">';
-	$output .= '<h2><a href="' . $item->get_permalink() . '>' .  $item->get_title() . '</a></h2>';
-	$output .= '<p>' . $item->get_description() . '</p>';
-	$output .= '<p><small>Posted on ' . $item->get_date('j F Y | g:i a') . '</small></p>';
-	$output .= '</div>';
-														 
+	
+	$output_item[ 'title' ]	      = $item->get_title() ;
+	$output_item[ 'permalink' ]   = $item->get_permalink();
+	$output_item[ 'description' ] = $item->get_description();
+	$output_item[ 'date' ]        = $item->get_date();
+
+	$output[ 'data'  ][] = $output_item; 
+
 endforeach;
 
-echo $output;
+echo json_encode( $output );

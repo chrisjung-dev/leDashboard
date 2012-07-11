@@ -7,8 +7,11 @@
 @import url( "http://fonts.googleapis.com/css?family=Droid+Sans:400,700" );
 
 @white: #fff;
+@black: #000;
 @bodyBgColor: #eee;
 @textColor: #333;
+@linkColor: #333;
+@linkHoverColor: #000;
 
 body {
 	color: @textColor;
@@ -30,6 +33,7 @@ header {
 
 	.feed {
 		display: inline-block;
+		vertical-align: top;
 		position: relative;
 		padding: 1em;
 		margin: 0.5em;
@@ -39,19 +43,58 @@ header {
 
 		box-shadow: 0 0 0.5em lighten( @textColor, 20% );
 
+		h2 {
+			margin: 0;
+
+			border-bottom: 1px solid @textColor;
+
+			font-size: 0.7em;
+		}
+
+		/**
+		 *	Feed Items
+		 */
+		ul { 
+			li {
+				text-overflow: ellipse;
+
+				a {
+
+					color: @linkColor;
+					&:hover {
+						color: @linkHoverColor;
+					}
+				}
+
+			}
+		}
+
+		/**
+		 *	reload, toggle-button
+		 */
 		.buttons {
-			position: absolute;
 			top: 0.5em;
 			right: 0.5em;
+			
 			color: @white;
 
-			& span {
+			position: absolute;
+
+			span {
+				padding: 0.5em;
+				margin: 0.125em;
+				
 				background: @textColor;
 				font-size: 0.6em;
+				
 				border-radius: 5px;
-				padding: 0.5em;
 			}
 		}
 	}
 	
+}
+
+#debug {
+	font-size: 8px;
+	color:@bodyBgColor;
 }

@@ -5,8 +5,6 @@ $(function(){
 	 */
 	for ( feed in feeds ) {
 
-		console.log( feed );
-
 		$( '#feeds' ).append( 
 			$('<div/>', {
 				'id': feed,
@@ -17,19 +15,60 @@ $(function(){
 
 		$.ajax({
 			url: 'get_feed.php',
+			dataType: 'json',
 			data: {
+				'feed_id' : feed,
 				'feed_url': feeds[ feed ].feedUrl
-			}, 
+			},
 			type: 'POST',
-			success: function( data ){
-				$('#debug').text( data );
+			success: function( json ){
+				
+				$feed_id = json.meta.id;
+				
+				$ul = $( '<ul/>' );
+				$( '#' + $feed_id + ' div' ).append( $ul );
+			
+				for( item in json.data ) {
+					$li = $( '<li/>', {
+						'title': json.data[ item ][ 'description' ]
+					});
+
+					$a = $( '<a/>', {
+						'text': json.data[ item ][ 'title' ],
+						'href': json.data[ item ][ 'permalink' ]
+					});
+					$li.append( $a );
+					$ul.append( $li );
+
+					// use enties -1 since "item" will be an index
+					if( feeds[ $feed_id ].entries && 
+						item >= feeds[ $feed_id  ].entries-1 ) 
+					{
+						//console.log( 'maximum reached' );
+						break;
+					}
+				}
 			}
 		});
 	}; // end widget creation
 
 	$( '.feed', '#feeds' ).hover(
 		function(){
-			var buttons = '<span class="buttons"><span class="reload">reload</span> <span class="toggle">mini/maxi</span></span>';
+			
+			var buttons = $('<span/>', {
+				'class': 'buttons'
+			});
+
+			var reloadbutton = $( '<span/>', {
+				'text': 'reload',
+				'class': 'reload'
+			}).appendTo( buttons );
+			
+			var togglebutton = $( '<span/>', {
+				'text': 'mini/maxi',
+				'class': 'toggle'
+			}).appendTo( buttons );
+		
 			$( this ).prepend( buttons );
 		},
 		function(){
