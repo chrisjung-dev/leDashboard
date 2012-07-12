@@ -3,7 +3,9 @@ $(function(){
 	/**
 	 * initially render all the widgets and get the contents
 	 */
-	render_feed_widgets();
+	feed_handling = new feed_handling();
+
+	feed_handling.render_feed_widgets();
 
 	/**
 	 * 	Show / hide buttons when hovering the feed widgets
@@ -18,7 +20,7 @@ $(function(){
 			var reloadbutton = $( '<span/>', {
 				'text': 'reload',
 				'class': 'button reload',
-				'click': reload_single_feed
+				'click': feed_handling.reload_single_feed
 			}).appendTo( buttons );
 			
 			var togglebutton = $( '<span/>', {
@@ -34,6 +36,6 @@ $(function(){
 	)
 
 	$( 'header .reloadall' ).click( function() {
-		$( '#feeds .feed > h2' ).each( reload_single_feed )
+		$( '#feeds .feed > h2' ).each( feed_handling.reload_single_feed )
 	});
 });
