@@ -1,11 +1,13 @@
 $(function(){
 	
 	/**
-	 * initially render all the widgets and get the contents
+	 *	Load config from json
 	 */
-	feed_handling = new feed_handling();
+	jQuery.getJSON( 'config/feeds.json', function( json ) {
+		console.log( json );
+	});
 
-	feed_handling.render_feed_widgets();
+
 
 	/**
 	 * 	Show / hide buttons when hovering the feed widgets
@@ -20,7 +22,7 @@ $(function(){
 			var reloadbutton = $( '<span/>', {
 				'text': 'reload',
 				'class': 'button reload',
-				'click': feed_handling.reload_single_feed
+//				'click': feed_handling.reload_single_feed
 			}).appendTo( buttons );
 			
 			var togglebutton = $( '<span/>', {
@@ -35,7 +37,13 @@ $(function(){
 		}
 	)
 
+	/**
+	 *	implement "reload all"
+	 */
 	$( 'header .reloadall' ).click( function() {
-		$( '#feeds .feed > h2' ).each( feed_handling.reload_single_feed )
+		for( feed in feeds ) {
+			feed.reload();
+		}
+//		$( '#feeds .feed > h2' ).each( feed_handling.reload_single_feed )
 	});
 });

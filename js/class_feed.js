@@ -1,12 +1,23 @@
 /**
  * @author cjung
  */
-feed_handling = function() {
+var feeds = [];
+
+Feed = function( _id, _title, _url, _feed_url ) {
 	var self = this;
+	
+	var id = _id;
+	var title = _title;
+	var url = _url; 
+	var feed_url = _feed_url;
+
+	this.init = function( feed_data ) {
+	},
+
 	/**
 	 *	Get all the feeds and create "Widgets" for them
 	 */
-	this.render_feed_widgets = function() {
+	this.render_feed_widges = function() {
 		for ( feed in feeds ) {
 			$( '#feeds' ).append(
 				$('<div/>', {
