@@ -1,7 +1,7 @@
 /**
  * @author cjung
  */
-var feeds = [];
+var feeds = {};
 
 Feed = function( _id, _config ) {
 
@@ -16,8 +16,6 @@ Feed = function( _id, _config ) {
 	var entries = _config.entries;
 
 	this.init = function( ) {
-		console.log( "Feed " + this.id + " has been initialized" );
-
 		render_widget();
 	}
 
@@ -93,8 +91,7 @@ Feed = function( _id, _config ) {
 		/**
 		 * remove old list and add loading icon
 		 */
-		var $feed = $( this ).parents( '.feed' );
-		$feed.find( 'div' ).addClass( 'loading' ).empty();
+		$( '#' + this.id + ' div' ).addClass( 'loading' ).empty();
 		get_single_feed_content( self.id );
 	}
 }

@@ -7,7 +7,8 @@ $(function(){
 		for( feed_id in json ) {
 			newFeed = new Feed( feed_id, json[ feed_id ] );
 			newFeed.init();
-			feeds.push( newFeed );
+			//feeds.push( newFeed );
+			feeds[ feed_id ] = newFeed;
 		}
 	});
 
@@ -26,7 +27,10 @@ $(function(){
 			var reloadbutton = $( '<span/>', {
 				'text': 'reload',
 				'class': 'button reload',
-//				'click': feed_handling.reload_single_feed
+				'click': function(){
+					//feeds[ $(this).parents( '.feed' ).attr( 'id' ) ].reload_feed()
+					feeds[ $(this).parents( '.feed' ).attr( 'id' ) ].reload_feed()
+				}
 			}).appendTo( buttons );
 			
 			var togglebutton = $( '<span/>', {
@@ -47,5 +51,8 @@ $(function(){
 	 *	implement "reload all"
 	 */
 	$( 'header .reloadall' ).click( function() {
+		for( feed in feeds ){
+			feeds[ feed ].reload_feed();
+		}
 	});
 });
