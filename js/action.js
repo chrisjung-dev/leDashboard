@@ -4,7 +4,11 @@ $(function(){
 	 *	Load config from json
 	 */
 	jQuery.getJSON( 'config/feeds.json', function( json ) {
-		console.log( json );
+		for( feed_id in json ) {
+			newFeed = new Feed( feed_id, json[ feed_id ] );
+			newFeed.init();
+			feeds.push( newFeed );
+		}
 	});
 
 
@@ -12,9 +16,9 @@ $(function(){
 	/**
 	 * 	Show / hide buttons when hovering the feed widgets
 	 */
-	$( '.feed', '#feeds' ).hover(
+	//$( '.feed', '#feeds' ).hover(
+	$( '#feeds' ).on( 'mouseenter', '.feed',  
 		function(){
-			
 			var buttons = $('<span/>', {
 				'class': 'buttons'
 			});
@@ -31,7 +35,9 @@ $(function(){
 			}).appendTo( buttons );
 		
 			$( this ).prepend( buttons );
-		},
+		}
+	)
+	$( '#feeds' ).on( 'mouseleave', '.feed',
 		function(){
 			$( this ).find( '.buttons' ).remove();
 		}
@@ -41,9 +47,5 @@ $(function(){
 	 *	implement "reload all"
 	 */
 	$( 'header .reloadall' ).click( function() {
-		for( feed in feeds ) {
-			feed.reload();
-		}
-//		$( '#feeds .feed > h2' ).each( feed_handling.reload_single_feed )
 	});
 });

@@ -7,7 +7,7 @@
 	"campino2k_wiki": {
 		"title":   "wiki.campino2k.de",
 		"url":     "http://wiki.campino2k.de",
-		"feedUrl": "http://wiki.campino2k.de/feed.php",
+		"feedUrl": "http://wiki.campino2k.de/feed.php"
 	},
 	"campino2k": {
 		"title":   "campino2k.de",
