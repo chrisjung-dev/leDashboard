@@ -27,7 +27,7 @@ header {
 	top: 0;
 	background: #333;
 	width: 100%;
-	height: 3em;
+	height: 2em;
 	z-index: 900;
 
 
@@ -36,6 +36,7 @@ header {
 	}
 
 	h1 {
+		margin: 0;
 		padding: 0 1em 0;
 	}
 	.menu {
@@ -54,38 +55,67 @@ header {
 		display: inline-block;
 		vertical-align: top;
 		position: relative;
-		padding: 1em;
+		//padding: 1em;
 		margin: 0.5em;
 		width: 20%;
 
 		background: @white;
 
-		box-shadow: 0 0 0.5em lighten( @textColor, 20% );
+		border-radius: 3px;
+		border: 1px solid lighten( @textColor, 40% );
+
+		box-shadow: 0 0 0.5em lighten( @textColor, 40% );
 
 		h2 {
 			margin: 0;
+			padding: 0.5em 1em;
 
-			border-bottom: 1px solid @textColor;
+			border-bottom: 1px solid lighten( @textColor, 40% );
 
 			font-size: 0.7em;
+			border-radius: 3px 3px 0 0;
+
+			background: darken( @white, 10% );
+
+			//cursor: move;
 			
 			a {
 				text-decoration: none;
+				color: @textColor;
+
+				&:hover {
+					text-decoration: underline;
+				}
 			}
 
 		}
+		
+		div {
+			padding: 1em;
 
-		div.loading {
-			min-height: 5em;
-			background: transparent url( "loading.gif" ) no-repeat center center;
+			&.loading {
+				min-height: 5em;
+				background: transparent url( "loading.gif" ) no-repeat center center;
+			}
+
+			ul {
+				padding-left: 0.8em
+			}
 		}
 
 		/**
 		 *	Feed Items
 		 */
-		ul { 
+		ul {
+
+			margin: 0;
+			list-style-type: square;
+
 			li {
+				padding: 0.2em 0;
 				text-overflow: ellipse;
+
+				font-size: 0.8em;
 
 				a {
 
@@ -113,11 +143,6 @@ header {
 			}
 		}
 	}
-}
-
-#debug {
-	font-size: 8px;
-	color:@bodyBgColor;
 }
 
 footer {

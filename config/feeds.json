@@ -2,7 +2,8 @@
 	"heise": {
 		"title":   "heise.de",
 		"url":     "http://heise.de",
-		"feedUrl": "http://www.heise.de/newsticker/heise-atom.xml"
+		"feedUrl": "http://www.heise.de/newsticker/heise-atom.xml",
+		"entries": 7
 	},
 	"campino2k_wiki": {
 		"title":   "wiki.campino2k.de",
