@@ -1,4 +1,13 @@
 $(function(){
+
+	/**
+	 * Make Feeds sortable
+	 */
+	$('#feeds').sortable({
+		handle: 'h2'
+	});
+	// TODO implement callback to save changes in JSON / config object
+	
 	
 	/**
 	 *	Load config from json
@@ -12,6 +21,10 @@ $(function(){
 		}
 	});
 
+	/**
+	 * TODO
+	 *	open list item to show more of the text
+	 */
 
 
 	/**

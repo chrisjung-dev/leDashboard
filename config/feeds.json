@@ -1,9 +1,21 @@
 {
 	"heise": {
-		"title":   "heise.de",
-		"url":     "http://heise.de",
-		"feedUrl": "http://www.heise.de/newsticker/heise-atom.xml",
-		"entries": 7
+		"title":	"heise.de",
+		"url":		"http://heise.de",
+		"feedUrl":	"http://www.heise.de/newsticker/heise-atom.xml",
+		"entries":	7
+	},
+	"tagesschau": {
+		"title":	"tagesschau",
+		"url":		"http://tagesschau.de",
+		"feedUrl":	"http://www.tagesschau.de/xml/rss2",
+		"entries":	7
+	},
+	"spiegel_de": {
+		"title":	"SPIEGEL online",
+		"url":		"http://spiegel.de",
+		"feedUrl":	"http://www.spiegel.de/schlagzeilen/index.rss",
+		"entries":	5
 	},
 	"campino2k_wiki": {
 		"title":   "wiki.campino2k.de",

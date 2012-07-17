@@ -77,7 +77,7 @@ header {
 
 			background: darken( @white, 10% );
 
-			//cursor: move;
+			cursor: move;
 			
 			a {
 				text-decoration: none;
@@ -97,10 +97,6 @@ header {
 				min-height: 5em;
 				background: transparent url( "loading.gif" ) no-repeat center center;
 			}
-
-			ul {
-				padding-left: 0.8em
-			}
 		}
 
 		/**
@@ -109,21 +105,35 @@ header {
 		ul {
 
 			margin: 0;
-			list-style-type: square;
+			padding: 0;
+			list-style-type: none;
 
 			li {
-				padding: 0.2em 0;
+				padding: 0.2em 0 0.2em 12px;
 				text-overflow: ellipse;
 
 				font-size: 0.8em;
 
+				position: relative;
+
+				&:before {
+					position: absolute;
+					left: 0px;
+					content: url("triangle.png");
+				}
+
 				a {
 
 					color: @linkColor;
+					display: block;
 					
 					&:hover {
 						color: @linkHoverColor;
 					}
+				}
+
+				&.open {
+					
 				}
 
 			}
