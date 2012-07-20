@@ -25,6 +25,16 @@ $(function(){
 	 * TODO
 	 *	open list item to show more of the text
 	 */
+	$( '#feeds' ).on( 'click', '.feed li', function( e ) {
+		// DEBUG
+		//e.preventDefault();
+		console.log( 'li item clicked' );
+		// DEBUG END
+
+		$( this ).addClass( 'opened' );
+
+
+	});
 
 
 	/**
@@ -41,7 +51,6 @@ $(function(){
 				'text': 'reload',
 				'class': 'button reload',
 				'click': function(){
-					//feeds[ $(this).parents( '.feed' ).attr( 'id' ) ].reload_feed()
 					feeds[ $(this).parents( '.feed' ).attr( 'id' ) ].reload_feed()
 				}
 			}).appendTo( buttons );
