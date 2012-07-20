@@ -77,4 +77,13 @@ $(function(){
 			feeds[ feed ].reload_feed();
 		}
 	});
+
+	/**
+	 *	Make buttons
+	 */
+	$( 'header .reloadall' ).button({
+		icons: {
+			primary: 'ui-icon-refresh'
+		}
+	})
 });
