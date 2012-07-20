@@ -26,13 +26,27 @@ $(function(){
 	 *	open list item to show more of the text
 	 */
 	$( '#feeds' ).on( 'click', '.feed li', function( e ) {
-		// DEBUG
-		//e.preventDefault();
-		console.log( 'li item clicked' );
-		// DEBUG END
+		$item = $( this );
 
-		$( this ).addClass( 'opened' );
+		if( ! $item.hasClass( 'opened' ) ) {
 
+			$item
+				.addClass( 'opened' )
+				.append(
+					$( '<p/>', {
+						'text': $( this ).attr( 'title' ),
+						'class': 'description'
+					})
+				);
+
+		} else {
+
+			$item
+				.removeClass( 'opened' )
+				.find( 'p' )
+					.remove();
+
+		}
 
 	});
 
