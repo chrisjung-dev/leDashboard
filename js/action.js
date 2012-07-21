@@ -6,7 +6,32 @@ $(function(){
 	$('#feeds').sortable({
 		handle: 'h2',
 		forcePlaceholderSize: true,
-		placeholder: 'feed placeholder'
+		placeholder: 'feed placeholder',
+		stop: function( event, ui ) {
+			var $save_feeds = {};
+
+			$( '#feeds .feed' ).each(function(index) {
+				$save_feeds[ $( this ).attr( 'id' ) ] = $loaded_feeds[ $( this ).attr( 'id' ) ];
+			});
+
+			$.ajax({
+				url: 'save_feed_config.php',
+				type: 'POST',
+				data: {
+					'feeds_config': JSON.stringify( $save_feeds )
+				},
+				success: function() {
+					/**
+					 * only after file was saved successfully, we will assume the saved
+					 * config is the "new loaded" one to enable multiple sorts without reloading
+					 * feed config and redraw all feeds
+					 */
+					$loaded_feeds = $save_feeds;
+				}
+				// TODO: warning message if nothing could be saved
+			})
+
+		}
 	});
 	// TODO implement callback to save changes in JSON / config object
 	
@@ -15,6 +40,9 @@ $(function(){
 	 *	Load config from json
 	 */
 	jQuery.getJSON( 'config/feeds.json', function( json ) {
+		
+		$loaded_feeds = json;
+
 		for( feed_id in json ) {
 			newFeed = new Feed( feed_id, json[ feed_id ] );
 			newFeed.init();
