@@ -4,7 +4,9 @@ $(function(){
 	 * Make Feeds sortable
 	 */
 	$('#feeds').sortable({
-		handle: 'h2'
+		handle: 'h2',
+		forcePlaceholderSize: true,
+		placeholder: 'feed placeholder'
 	});
 	// TODO implement callback to save changes in JSON / config object
 	

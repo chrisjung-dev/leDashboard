@@ -10,6 +10,8 @@
 @linkColor: #333;
 @linkHoverColor: #000;
 
+@lightBlue: #36a5f7;
+
 body {
 	color: @textColor;
 	font-family: "Droid Sans", sans;
@@ -29,39 +31,42 @@ header {
 	width: 100%;
 	height: 2em;
 	z-index: 900;
-
-
-	* {
-		color:@bodyBgColor;
-	}
+	font-size: 0.6em;
 
 	h1 {
 		margin: 0;
 		padding: 0 1em 0;
+		color:@bodyBgColor;
+
+		&:hover {
+			color: @lightBlue;
+		}
 	}
 	.menu {
 		position: absolute;
 		top: 0.5em;
 		right: 0.5em;
+
+		// round 10 px for jqueryUI Buttons to look nice
+		font-size: 1em;
 	}
 	
 }
 
 #feeds {
 
-	margin: 5em auto 3.5em auto;
+	margin: 3em auto 2.5em auto;
 	max-width: 1200px;
 
 	.feed {
+		margin: 1%;
+		width: 31% ;
 		display: inline-block;
+
 		vertical-align: top;
 		position: relative;
-		margin: 1%;
-
-		width: 31% ;
 
 		background: @white;
-
 		border-radius: 3px;
 
 		box-shadow: 0 0 1px lighten( @textColor, 30% ), 0 0 0.5em lighten( @textColor, 40% );
@@ -89,7 +94,23 @@ header {
 			}
 
 		}
-		
+
+		&.ui-sortable-helper {
+			h2 {
+				color: @lightBlue;
+				background: @textColor;
+
+				a {
+					color: @lightBlue;
+				}
+			}
+		}
+
+		&.placeholder {
+			background: @white url( "drop_arrow.png" ) no-repeat center center;
+			box-shadow: inset 0 0 1em @lightBlue;
+		}
+
 		div {
 			padding: 1em;
 
@@ -169,7 +190,7 @@ footer {
 	background: #333;
 	width: 100%;
 	//height: 2.5em;
-	line-height: 2.5em;
+	line-height: 0.5em;
 	padding: 0 2em;
 
 	font-size: 0.8em;
@@ -177,18 +198,22 @@ footer {
 	* {
 		color:#eee;
 	}
+
+	a:hover {
+		color: @lightBlue;
+	}
 }
 
 .button {
-  padding: 0.5em;
-  margin: 0.125em;
-  
-  color: @bodyBgColor; 
-  background: @textColor;
-  font-size: 0.6em;
-  
-  border-radius: 5px;
+	padding: 0.5em;
+	margin: 0.125em;
+
+	color: @bodyBgColor;
+	background: @textColor;
+	font-size: 0.6em;
+
+	border-radius: 5px;
 }
 header .button {
-  border: 1px solid @bodyBgColor;
+	border: 1px solid @bodyBgColor;
 }
