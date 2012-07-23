@@ -27,19 +27,23 @@ $(function(){
 					 * feed config and redraw all feeds
 					 */
 					$loaded_feeds = $save_feeds;
+				},
+				error: function(_req, _text, _error ) {
+					// warning message if nothing could be saved
+
+					console.log( _text + ": " + _error );
+
+					alert( 'Feed config could not be saved' );
 				}
-				// TODO: warning message if nothing could be saved
 			})
 
 		}
 	});
-	// TODO implement callback to save changes in JSON / config object
-	
 	
 	/**
 	 *	Load config from json
 	 */
-	jQuery.getJSON( 'config/feeds.json', function( json ) {
+	$.getJSON( 'config/feeds.json', function( json ) {
 		
 		$loaded_feeds = json;
 
@@ -125,9 +129,15 @@ $(function(){
 	/**
 	 *	Make buttons
 	 */
-	$( 'header .reloadall' ).button({
+	$( 'header .reload_all' ).button({
 		icons: {
 			primary: 'ui-icon-refresh'
+		}
+	});
+
+	$( 'header .add_feed' ).button({
+		icons: {
+			primary: 'ui-icon-plusthick'
 		}
 	})
 });
