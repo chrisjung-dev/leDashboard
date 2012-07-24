@@ -120,7 +120,7 @@ $(function(){
 	/**
 	 *	implement "reload all"
 	 */
-	$( 'header .reloadall' ).click( function() {
+	$( 'header .reload_all' ).click( function() {
 		for( feed in feeds ){
 			feeds[ feed ].reload_feed();
 		}
