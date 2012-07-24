@@ -31,10 +31,27 @@
 		<footer>
 			<p>2012, <a href="http://campino2k.de">Christian Jung</a> | Fork me on <a href="http://github.com/campino2k/leDashboard">Github</a></p>
 		</footer>
+
+		<div id="new-feed-form" title="Add new feed">
+			<p class="validateTips">All form fields are required.</p>
+
+			<form>
+				<fieldset>
+					<label for="name">Name</label>
+					<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />
+					<label for="email">Email</label>
+					<input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all" />
+					<label for="password">Password</label>
+					<input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all" />
+				</fieldset>
+			</form>
+		</div>
+
 	</body>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
 	<script src="js/feed.class.js"></script>
+	<script src="js/feed_add.js"></script>
 	<script src="js/action.js"></script>
 </html>

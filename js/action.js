@@ -135,9 +135,11 @@ $(function(){
 		}
 	});
 
-	$( 'header .add_feed' ).button({
-		icons: {
-			primary: 'ui-icon-plusthick'
-		}
-	})
+	$( 'header .add_feed' )
+		.button({
+			icons: {
+				primary: 'ui-icon-plusthick'
+			}
+		})
+		.click( open_add_feed_form );
 });
