@@ -8,7 +8,7 @@ open_add_feed_form = function() {
 
 $( "#new-feed-form" ).dialog({
 	autoOpen: false,
-	height: 300,
+//	height: 500,
 	width: 350,
 	modal: true,
 	buttons: {
