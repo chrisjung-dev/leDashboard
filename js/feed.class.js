@@ -57,12 +57,35 @@ Feed = function( _id, _config ) {
 			
 				for( item in json.data ) {
 					$li = $( '<li/>', {
-						'title': json.data[ item ][ 'description' ]
+						click: function() {
+							$item = $( this );
+
+							if( ! $item.hasClass( 'opened' ) ) {
+
+								$item
+									.addClass( 'opened' )
+									.append(
+										$( '<p/>', {
+											'text': $( this ).find( 'a' ).attr( 'title' ),
+											'class': 'description'
+										})
+									);
+
+							} else {
+
+								$item
+									.removeClass( 'opened' )
+									.find( 'p' )
+										.remove();
+
+							}
+						}
 					});
 
 					$a = $( '<a/>', {
 						'text': json.data[ item ][ 'title' ],
-						'href': json.data[ item ][ 'permalink' ]
+						'href': json.data[ item ][ 'permalink' ],
+						'title': json.data[ item ][ 'description' ]
 					});
 					$li.append( $a );
 					$ul.append( $li );

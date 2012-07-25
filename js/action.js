@@ -56,36 +56,6 @@ $(function(){
 	});
 
 	/**
-	 * TODO
-	 *	open list item to show more of the text
-	 */
-	$( '#feeds' ).on( 'click', '.feed li', function( e ) {
-		$item = $( this );
-
-		if( ! $item.hasClass( 'opened' ) ) {
-
-			$item
-				.addClass( 'opened' )
-				.append(
-					$( '<p/>', {
-						'text': $( this ).attr( 'title' ),
-						'class': 'description'
-					})
-				);
-
-		} else {
-
-			$item
-				.removeClass( 'opened' )
-				.find( 'p' )
-					.remove();
-
-		}
-
-	});
-
-
-	/**
 	 * 	Show / hide buttons when hovering the feed widgets
 	 */
 	//$( '.feed', '#feeds' ).hover(
