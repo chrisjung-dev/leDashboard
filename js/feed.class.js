@@ -85,7 +85,12 @@ Feed = function( _id, _config ) {
 					$a = $( '<a/>', {
 						'text': json.data[ item ][ 'title' ],
 						'href': json.data[ item ][ 'permalink' ],
-						'title': json.data[ item ][ 'description' ]
+						'title': json.data[ item ][ 'description' ],
+						click: function( evt ) {
+							// prevent the link from recieving the click
+							// and open when permalink is clicked 
+							evt.stopPropagation();
+						}
 					});
 					$li.append( $a );
 					$ul.append( $li );
