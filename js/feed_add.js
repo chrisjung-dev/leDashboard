@@ -2,11 +2,16 @@
  *	All actions and handlers needed to add a new Feed
  */
 
-var id = $( "#id" ),
-	site_title = $( "#site_title" ),
+var $id = $( '#id' ),
+	$site_title = $( '#site_title' ),
+	$feed_url = $( '#feed_url' ),
 
 	password = $( "#password" ),
-	allFields = $( [] ).add( id ).add( site_title ).add( password ),
+	allFields =	$( [] )
+					.add( id )
+					.add( site_title )
+					.add( feed_url )
+					.add( password ),
 	tips = $( ".validateTips" );
 
 
@@ -53,8 +58,15 @@ $( "#new-feed-form" ).dialog({
 		"Add this Feed": function() {
 			var bValid = true;
 			allFields.removeClass( "ui-state-error" );
+			
+			// check id field for illegal characters (html id attribute rules)
+			bValid = bValid && checkRegexp( $id, /^[a-zA-Z]([0-9a-zA-Z_-])+$/, "ID field only allows : a-z 0-9 _ -, must begin with a letter." );
+			
+			// Check feed URL for http(s)
+			bValid = bValid && checkRegexp( $feed_url, /^(http|https):\/\//, "URL must begin with http:// or https://" );
 
-			bValid = bValid && checkRegexp( id, /^[a-zA-Z]([0-9a-zA-Z_-])+$/, "ID field only allows : a-z 0-9 _ -, must begin with a letter." );
+			// Check site URL for http(s)
+			bValid = bValid && checkRegexp( $site_url, /^(http|https):\/\//, "URL must begin with http:// or https://" );
 
 	//		bValid = bValid && checkLength( site_title, "username", 3, 16 );
 	//		bValid = bValid && checkLength( email, "email", 6, 80 );
