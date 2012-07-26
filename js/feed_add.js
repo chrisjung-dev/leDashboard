@@ -2,16 +2,17 @@
  *	All actions and handlers needed to add a new Feed
  */
 
-open_add_feed_form = function() {
-	$( "#new-feed-form" ).dialog( "open" )
-}
-
 var id = $( "#id" ),
 	site_title = $( "#site_title" ),
 
 	password = $( "#password" ),
 	allFields = $( [] ).add( id ).add( site_title ).add( password ),
 	tips = $( ".validateTips" );
+
+
+open_add_feed_form = function() {
+	$( "#new-feed-form" ).dialog( "open" )
+}
 
 function updateTips( t ) {
 	tips
