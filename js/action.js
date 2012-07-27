@@ -65,18 +65,29 @@ $(function(){
 				'class': 'buttons'
 			});
 
-			var reloadbutton = $( '<span/>', {
+			var reloadbutton = $( '<a/>', {
 				'text': 'reload',
-				'class': 'button reload',
 				'click': function(){
 					feeds[ $(this).parents( '.feed' ).attr( 'id' ) ].reload_feed()
 				}
+			}).button({
+				icons: {
+					primary: 'ui-icon-arrowrefresh-1-e'
+				},
+				text: false
 			}).appendTo( buttons );
 			
-			var togglebutton = $( '<span/>', {
+			var togglebutton = $( '<a/>', {
 				'text': 'mini/maxi',
-				'class': 'button toggle'
+			}).button({
+				icons: {
+					primary: 'ui-icon-minus'
+				},
+				text: false
 			}).appendTo( buttons );
+
+			// make the buttons stick together
+			buttons.buttonset();
 		
 			$( this ).prepend( buttons );
 		}
@@ -100,9 +111,9 @@ $(function(){
 	 *	Make buttons
 	 */
 	$( 'header .reload_all' ).button({
-		icons: {
-			primary: 'ui-icon-refresh'
-		}
+	icons: {
+		primary: 'ui-icon-refresh'
+	}
 	});
 
 	$( 'header .add_feed' )
