@@ -78,7 +78,20 @@ $( "#new-feed-form" ).dialog({
 
 				/**
 				 *	Here, add the new feed to feeds var, render and save!
-				 */ 
+				 */
+				var newFeed = new Feed( id.val(), {
+					title: '',
+					feedUrl: '',
+					url: '',
+					entries: null
+				});
+
+				// render feed
+				newFeed.init();
+
+				// add to other feeds
+				feeds[ feed_id ] = newFeed;
+
 				$( this ).dialog( "close" );
 			}
 		},

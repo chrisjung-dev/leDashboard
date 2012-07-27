@@ -48,7 +48,7 @@ $(function(){
 		$loaded_feeds = json;
 
 		for( feed_id in json ) {
-			newFeed = new Feed( feed_id, json[ feed_id ] );
+			var newFeed = new Feed( feed_id, json[ feed_id ] );
 			newFeed.init();
 			//feeds.push( newFeed );
 			feeds[ feed_id ] = newFeed;
