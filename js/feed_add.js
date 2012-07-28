@@ -5,13 +5,16 @@
 var $id = $( '#id' ),
 	$site_title = $( '#site_title' ),
 	$feed_url = $( '#feed_url' ),
+	$site_url = $( '#site_url' ),
+	$entries = $( '#entries' ),
 
 	password = $( "#password" ),
 	allFields =	$( [] )
-					.add( id )
-					.add( site_title )
-					.add( feed_url )
-					.add( password ),
+					.add( $id )
+					.add( $site_title )
+					.add( $feed_url )
+					.add( $site_url )
+					.add( $entries ),
 	tips = $( ".validateTips" );
 
 
@@ -79,18 +82,24 @@ $( "#new-feed-form" ).dialog({
 				/**
 				 *	Here, add the new feed to feeds var, render and save!
 				 */
-				var newFeed = new Feed( id.val(), {
-					title: '',
-					feedUrl: '',
-					url: '',
-					entries: null
-				});
+
+				var feed_config = {
+					title: $site_title.val(),
+					feedUrl: $feed_url.val(),
+					url: $site_url.val(),
+					entries: $entries.val() 
+				};
+				var newFeed = new Feed( $id.val(), feed_config );
 
 				// render feed
 				newFeed.init();
 
-				// add to other feeds
-				feeds[ feed_id ] = newFeed;
+				// add to global feeds container
+				feeds[ $id.val() ] = newFeed;
+
+				$loaded_feeds[ $id.val() ] = feed_config;
+
+				save_feed_config( $loaded_feeds );
 
 				$( this ).dialog( "close" );
 			}

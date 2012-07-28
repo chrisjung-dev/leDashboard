@@ -14,28 +14,7 @@ $(function(){
 				$save_feeds[ $( this ).attr( 'id' ) ] = $loaded_feeds[ $( this ).attr( 'id' ) ];
 			});
 
-			$.ajax({
-				url: 'save_feed_config.php',
-				type: 'POST',
-				data: {
-					'feeds_config': JSON.stringify( $save_feeds )
-				},
-				success: function() {
-					/**
-					 * only after file was saved successfully, we will assume the saved
-					 * config is the "new loaded" one to enable multiple sorts without reloading
-					 * feed config and redraw all feeds
-					 */
-					$loaded_feeds = $save_feeds;
-				},
-				error: function(_req, _text, _error ) {
-					// warning message if nothing could be saved
-
-					console.log( _text + ": " + _error );
-
-					alert( 'Feed config could not be saved' );
-				}
-			})
+			save_feed_config( $save_feeds );
 
 		}
 	});
@@ -124,3 +103,32 @@ $(function(){
 		})
 		.click( open_add_feed_form );
 });
+
+/**
+ *
+ */
+var save_feed_config = function( _feeds ) {
+
+	$.ajax({
+		url: 'save_feed_config.php',
+		type: 'POST',
+		data: {
+			'feeds_config': JSON.stringify( _feeds )
+		},
+		success: function() {
+			/**
+			 * only after file was saved successfully, we will assume the saved
+			 * config is the "new loaded" one to enable multiple sorts without reloading
+			 * feed config and redraw all feeds
+			 */
+			$loaded_feeds = _feeds;
+		},
+		error: function(_req, _text, _error ) {
+			// warning message if nothing could be saved
+
+			console.log( _text + ": " + _error );
+
+			alert( 'Feed config could not be saved' );
+		}
+	})
+}
