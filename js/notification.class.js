@@ -37,8 +37,10 @@ NotificationSystem = function( _config ) {
 			.appendTo( $( '#notification_area' ) )
 			.fadeIn( 'slow' )
 			.delay( 2000 )
-			.fadeOut( 'slow' )
-			//.remove();
+			.fadeOut( 'slow', function(){
+				$( this ).remove();
+			})
+			
 	}
 
 }
