@@ -65,6 +65,27 @@ $(function(){
 				text: false
 			}).appendTo( buttons );
 
+			var editButton = $( '<a/>', {
+				'text': 'edit',
+				'click': function() {
+					$this_id =$(this).parents( '.feed' ).attr( 'id' ); 
+					$this_item = $loaded_feeds[ $this_id ];
+
+					$id.val( $this_id );
+					$site_url.val( $this_item.url  );
+					$feed_url.val( $this_item.feedUrl );
+					$site_title.val( $this_item.title );
+					$entries.val( $this_item.entries );
+					
+					open_add_feed_form();
+				}
+			}).button({
+				icons: {
+					primary: 'ui-icon-wrench'
+				},
+				text: false,
+			}).appendTo( buttons );
+
 			// make the buttons stick together
 			buttons.buttonset();
 		
@@ -105,7 +126,7 @@ $(function(){
 });
 
 /**
- *
+ *	Save the configured Feeds
  */
 var save_feed_config = function( _feeds ) {
 

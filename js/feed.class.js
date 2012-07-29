@@ -86,6 +86,7 @@ Feed = function( _id, _config ) {
 						'text': json.data[ item ][ 'title' ],
 						'href': json.data[ item ][ 'permalink' ],
 						'title': json.data[ item ][ 'description' ],
+						'target': '_blank',
 						click: function( evt ) {
 							// prevent the link from recieving the click
 							// and open when permalink is clicked 
