@@ -143,6 +143,8 @@ var save_feed_config = function( _feeds ) {
 			 * feed config and redraw all feeds
 			 */
 			$loaded_feeds = _feeds;
+
+			notify.show_notification( 'Feed config and order has been saved' );
 		},
 		error: function(_req, _text, _error ) {
 			// warning message if nothing could be saved
