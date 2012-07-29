@@ -23,13 +23,17 @@ Feed = function( _id, _config ) {
 	 *	Get all the feeds and create "Widgets" for them
 	 */
 	var render_widget = function() {
-		$( '#feeds' ).append(
-			$('<div/>', {
-				'id': self.id,
-				'class': 'feed',
-				'html': '<h2><a href="' + url  + '">' + title + '</a></h2><div class="loading"></div>'
-			})
-		);
+		if( $( '#' + self.id ).length === 0 ) {
+			$( '#feeds' ).append(
+				$('<div/>', {
+					'id': self.id,
+					'class': 'feed',
+					'html': '<h2><a href="' + url  + '">' + title + '</a></h2><div class="loading"></div>'
+				})
+			);
+		} else {
+			$( '#' + self.id ).html( '<h2><a href="' + url  + '">' + title + '</a></h2><div class="loading"></div>' );
+		}
 		get_single_feed_content();
 	} 
 

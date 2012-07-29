@@ -90,12 +90,6 @@ $( "#new-feed-form" ).dialog({
 					entries: $entries.val() 
 				};
 				var newFeed = new Feed( $id.val(), feed_config );
-				
-				if( $( '#' + $id.val() ).length !== 0 ) {
-
-					// if this id already exists, destroy the widget and render new
-					$( '#' + $id.val() ).remove();
-				}
 
 				// render feed
 				newFeed.init();
