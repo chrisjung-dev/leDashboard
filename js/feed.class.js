@@ -70,7 +70,7 @@ Feed = function( _id, _config ) {
 									.addClass( 'opened' )
 									.append(
 										$( '<p/>', {
-											'text': $( this ).find( 'a' ).attr( 'title' ),
+											'html': $( this ).find( 'a' ).attr( 'title' ),
 											'class': 'description'
 										})
 									);
@@ -87,11 +87,11 @@ Feed = function( _id, _config ) {
 					});
 
 					$a = $( '<a/>', {
-						'text': json.data[ item ][ 'title' ],
+						'html': json.data[ item ][ 'title' ],
 						'href': json.data[ item ][ 'permalink' ],
 						'title': json.data[ item ][ 'description' ],
 						'target': '_blank',
-						click: function( evt ) {
+						'click': function( evt ) {
 							// prevent the link from recieving the click
 							// and open when permalink is clicked 
 							evt.stopPropagation();
