@@ -148,10 +148,7 @@ var save_feed_config = function( _feeds ) {
 		},
 		error: function(_req, _text, _error ) {
 			// warning message if nothing could be saved
-
-			console.log( _text + ": " + _error );
-
-			alert( 'Feed config could not be saved' );
+			notify.show_error( 'Feed config could not be saved: \n' + _error  );
 		}
 	})
 }

@@ -40,8 +40,25 @@ NotificationSystem = function( _config ) {
 			.fadeOut( 'slow', function(){
 				$( this ).remove();
 			})
-			
 	}
+
+	this.show_error = function( _text ) {
+		var notification = $( '<div/>', {
+			'text': _text,
+			'class': 'notification error',
+			'css': {
+				'display': 'none'
+			}
+		});
+		notification
+			.appendTo( $( '#notification_area' ) )
+			.fadeIn( 'slow' )
+			.delay( 2000 )
+			.fadeOut( 'slow', function(){
+				$( this ).remove();
+			})
+	}
+
 
 }
 

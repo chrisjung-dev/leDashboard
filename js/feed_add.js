@@ -109,8 +109,6 @@ $( "#new-feed-form" ).dialog({
 		}
 	},
 	close: function() {
-		// TODO
-		// Create the new Feed.
 		allFields.val( "" ).removeClass( "ui-state-error" );
 	}
 });
