@@ -14,7 +14,8 @@ $settings_form = $( '#settings-form' ).dialog({
 	width: 350,
 	modal: true,
 	open: function() {
-
+		
+		// prefill the form fields
 		$settings_cols.val( $settings.columns );
 		$settings_background.val( $settings.background );
 		$settings_reloadtime.val( $settings.reloadtime );
@@ -22,7 +23,8 @@ $settings_form = $( '#settings-form' ).dialog({
 	},
 	buttons: {
 		'Save settings' : function() {
-			// TODO Save the settings
+			// TODO Validate Settings
+			save_settings( $settings );
 		},
 		'Cancel' : function() {
 			$( this ).dialog( 'close' );

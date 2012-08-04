@@ -179,3 +179,21 @@ var save_feed_config = function( _feeds ) {
 		}
 	})
 }
+
+var save_settings = function( _settings ) {
+	$.ajax({
+		url: 'save_settings.php',
+		type: 'POST',
+		data: {
+			'settings': JSON.stringify( _settings )
+		},
+		success: function() {
+
+			$settings = _settings;
+			notify.show_notification( 'Settings have been saved successfully' );
+		},
+		error: function( _req, _text, _error ){
+			notify.show_error( 'Settings config could not be saved: \n' + _error  );
+		}
+	});
+}
