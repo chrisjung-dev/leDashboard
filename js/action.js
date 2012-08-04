@@ -77,6 +77,7 @@ $(function(){
 					$site_title.val( $this_item.title );
 					$entries.val( $this_item.entries );
 					
+					$( '#new-feed-form' ).dialog( 'option', 'title', 'Edit Feed Settings' );
 					open_add_feed_form();
 				}
 			}).button({
@@ -122,7 +123,17 @@ $(function(){
 				primary: 'ui-icon-plusthick'
 			}
 		})
-		.click( open_add_feed_form );
+		.click( function(){
+			$( '#new-feed-form' ).dialog( 'option', 'title', 'Add new feed' );
+			open_add_feed_form();
+		});
+
+	$( 'header .settings' )
+		.button({
+			icons: {
+				primary: 'ui-icon-wrench'
+			}
+		})
 });
 
 /**
