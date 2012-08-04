@@ -1,4 +1,5 @@
 {
-	'columns'		: 3,
-	'background'	: ''
+	"columns"	: 3,
+	"background"	: false,
+	"reloadtime"	: 5
 }

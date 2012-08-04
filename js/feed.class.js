@@ -15,11 +15,14 @@ Feed = function( _id, _config ) {
 	var feed_url = _config.feedUrl;
 	var entries = _config.entries;
 
+	var reload_time = $settings ? $settings.reloadtime : 5;
+
 	var auto_reload = window.setInterval( function() {
 
 		self.reload_feed();
 
-	}, (1000*60*5) );
+	}, ( (1000*60) * reload_time ) );
+	//}, ( (1000*60*5) ) );
 
 	this.init = function( ) {
 		render_widget();

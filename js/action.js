@@ -20,19 +20,32 @@ $(function(){
 	});
 	
 	/**
-	 *	Load config from json
+	 * Load general settings
 	 */
-	$.getJSON( 'config/feeds.json', function( json ) {
+	$get_settings = $.ajax({
+		url: 'config/settings.json',
+		dataType: 'json',
+		async: false,
+		success: function( json ) {
+			// set global variable for general settings
+			$settings = json;
+		}
+	});
+
+	/**
+	 *	Load feed config from json
+	 */
+	$get_feeds = $.getJSON( 'config/feeds.json', function( json ) {
 		
 		$loaded_feeds = json;
 
 		for( feed_id in json ) {
 			var newFeed = new Feed( feed_id, json[ feed_id ] );
 			newFeed.init();
-			//feeds.push( newFeed );
 			feeds[ feed_id ] = newFeed;
 		}
 	});
+
 
 	/**
 	 * 	Show / hide buttons when hovering the feed widgets
