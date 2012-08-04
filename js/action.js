@@ -147,6 +147,9 @@ $(function(){
 				primary: 'ui-icon-wrench'
 			}
 		})
+		.click( function(){
+			open_settings_form();
+		})
 });
 
 /**

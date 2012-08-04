@@ -1,5 +1,6 @@
 /**
  *	All actions and handlers needed to add a new Feed
+ *	@author Christian Jung <campino2k@gmail.com>
  */
 
 var $id = $( '#id' ),
@@ -10,16 +11,16 @@ var $id = $( '#id' ),
 
 	password = $( "#password" ),
 	allFields =	$( [] )
-					.add( $id )
-					.add( $site_title )
-					.add( $feed_url )
-					.add( $site_url )
-					.add( $entries ),
+				.add( $id )
+				.add( $site_title )
+				.add( $feed_url )
+				.add( $site_url )
+				.add( $entries ),
 	tips = $( ".validateTips" );
 
 
 open_add_feed_form = function() {
-	$( "#new-feed-form" ).dialog( "open" )
+	new_feed_form.dialog( "open" )
 }
 
 function updateTips( t ) {
@@ -52,7 +53,7 @@ function checkRegexp( o, regexp, n ) {
 	}
 }
 
-$( "#new-feed-form" ).dialog({
+var new_feed_form = $( "#new-feed-form" ).dialog({
 	autoOpen: false,
 //	height: 500,
 	width: 350,
