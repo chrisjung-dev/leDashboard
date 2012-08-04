@@ -24,6 +24,7 @@ $settings_form = $( '#settings-form' ).dialog({
 	buttons: {
 		'Save settings' : function() {
 			// TODO Validate Settings
+			// TODO Renew Timeout settings for feeds
 			save_settings( $settings );
 		},
 		'Cancel' : function() {
