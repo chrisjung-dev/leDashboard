@@ -1,0 +1,29 @@
+@import url( "http://fonts.googleapis.com/css?family=Droid+Sans:400,700" );
+/**
+ *	leDashboard Desktop-Styles
+ **/
+
+@white: #fff;
+@black: #000;
+@bodyBgColor: #eee;
+@textColor: #333;
+@linkColor: #333;
+@linkHoverColor: #000;
+
+@lightBlue: #36a5f7;
+
+body {
+	color: @textColor;
+	font-family: "Droid Sans", sans;
+
+	background: @bodyBgColor; 
+}
+
+@import "header.less";
+@import "feeds.less";
+@import "footer.less";
+
+@import "screen.add_feed.less";
+@import "mobile.phone.less";
+//@import "mobile.tablet.less";
+@import "notificationsystem.less";

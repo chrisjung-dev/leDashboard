@@ -1,58 +1,3 @@
-@import url( "http://fonts.googleapis.com/css?family=Droid+Sans:400,700" );
-/**
- *	leDashboard Desktop-Styles
- **/
-
-@white: #fff;
-@black: #000;
-@bodyBgColor: #eee;
-@textColor: #333;
-@linkColor: #333;
-@linkHoverColor: #000;
-
-@lightBlue: #36a5f7;
-
-body {
-	color: @textColor;
-	font-family: "Droid Sans", sans;
-
-	background: @bodyBgColor; 
-}
-
-header {
-  
-	position: fixed;
-  
-	padding: 1em 0;
-	left: 0;
-	right: 0;
-	top: 0;
-	background: #333;
-	width: 100%;
-	height: 2em;
-	z-index: 900;
-	font-size: 0.6em;
-
-	h1 {
-		margin: 0;
-		padding: 0 1em 0;
-		color:@bodyBgColor;
-
-		&:hover {
-			color: @lightBlue;
-		}
-	}
-	.menu {
-		position: absolute;
-		top: 0.5em;
-		right: 0.5em;
-
-		// round 10 px for jqueryUI Buttons to look nice
-		font-size: 1em;
-	}
-	
-}
-
 #feeds {
 
 	margin: 3em auto 2.5em auto;
@@ -107,7 +52,7 @@ header {
 		}
 
 		&.placeholder {
-			background: @white url( "drop_arrow.png" ) no-repeat center center;
+			background: @white url( "../drop_arrow.png" ) no-repeat center center;
 			box-shadow: inset 0 0 1em @lightBlue;
 		}
 
@@ -116,7 +61,7 @@ header {
 
 			&.loading {
 				min-height: 5em;
-				background: transparent url( "loading.gif" ) no-repeat center center;
+				background: transparent url( "../loading.gif" ) no-repeat center center;
 			}
 		}
 
@@ -143,7 +88,7 @@ header {
 
 					position: absolute;
 					left: 0px;
-					content: url("triangle.png");
+					content: url("../triangle.png");
 				}
 				&.opened:before {
 					-webkit-transform: rotate(90deg);
@@ -178,34 +123,3 @@ header {
 		}
 	}
 }
-
-footer {
-	position: fixed;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: #333;
-	width: 100%;
-	//height: 2.5em;
-	line-height: 0.5em;
-	padding: 0 2em;
-
-	font-size: 0.8em;
-
-	* {
-		color:#eee;
-	}
-
-	a:hover {
-		color: @lightBlue;
-	}
-}
-
-header .button {
-	border: 1px solid @bodyBgColor;
-}
-
-@import "screen.add_feed.less";
-@import "mobile.phone.less";
-//@import "mobile.tablet.less";
-@import "notificationsystem.less";
