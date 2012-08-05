@@ -37,7 +37,7 @@ Feed = function( _id, _config ) {
 				$('<div/>', {
 					'id': self.id,
 					'class': 'feed',
-					'html': '<h2><a href="' + url  + '">' + title + '</a></h2><div class="loading"></div>'
+					'html': '<h2><a href="' + url  + '" target="_blank">' + title + '</a></h2><div class="loading"></div>'
 				})
 			);
 		} else {
