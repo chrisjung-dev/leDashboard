@@ -16,7 +16,7 @@ NotificationSystem = function( _config ) {
 				id: 'notification_area',
 				css: {
 					'position': 'absolute',
-					'top': '10px',
+					'top': '30px',
 					'right': '10px',
 					'width': '300px'
 				}
