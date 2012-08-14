@@ -1,3 +1,13 @@
+<?php
+
+	function active_user() {
+		//return false;
+		return true;
+	};
+	if( active_user() === false ){
+		die( 'No user session' );
+	};
+?>
 <!DOCTYPE html>
 <html>
 
