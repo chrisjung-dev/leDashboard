@@ -5,6 +5,15 @@
  */
 $feeds = $_POST[ 'feeds_config' ];
 
+/**
+ *	Test JSON for errors
+ */
+json_decode( $feeds );
+
+if( json_last_error() != JSON_ERROR_NONE ) {
+	die( '{"error":"Error occuured in JSON"}' );
+}
+
 // file writing explanation from http://www.evocomp.de/beispiele/php/file-datei.html
 
 // Datei schreiben mit PHP
@@ -15,6 +24,10 @@ $file_name = 'config/feeds.json';
 // so wird diese überschrieben, da der File Pointer automatisch
 // auf das erste Zeichen in der Datei gesetzt wird.
 $file_handle = fopen ($file_name, 'w');
+
+if( $file_handle === false ) {
+	die( '{"error":"Error in saving the file"}' );
+}
 
 // Eine Zeichenkette in die geöffnete Datei schreiben.
 fwrite ($file_handle, $feeds );
