@@ -29,6 +29,7 @@ $(function(){
 		success: function( json ) {
 			// set global variable for general settings
 			$settings = json;
+			applySettings();
 		}
 	});
 
