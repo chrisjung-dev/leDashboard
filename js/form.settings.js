@@ -26,6 +26,13 @@ $settings_form = $( '#settings-form' ).dialog({
 			// TODO Validate Settings
 			// TODO Renew Timeout settings for feeds
 			save_settings( $settings );
+			
+			/**
+			 *	Apply Feed Settings
+			 */
+			$( '#feeds' )
+				.removeClass( 'col2 col3 col4 col5'  )
+				.addClass( 'col' + $settings_cols.val() );
 		},
 		'Cancel' : function() {
 			$( this ).dialog( 'close' );
