@@ -70,7 +70,7 @@
 				<fieldset>
 
 					<label for="columns">Columns</label>
-					<input type="number" name="columns" id="columns" class="text ui-widget-content ui-corner-all" />
+					<input type="number" min="2" max="5" name="columns" id="columns" class="text ui-widget-content ui-corner-all" />
 
 					<label for="background_url">Background image URL</label>
 					<input type="text" name="background_url" id="background_url" value="" class="text ui-widget-content ui-corner-all" />
