@@ -160,6 +160,7 @@ var save_feed_config = function( _feeds ) {
 	$.ajax({
 		url: 'save_feed_config.php',
 		type: 'POST',
+		dataType: 'json',
 		data: {
 			'feeds_config': JSON.stringify( _feeds )
 		},
@@ -174,6 +175,11 @@ var save_feed_config = function( _feeds ) {
 			notify.show_notification( 'Feed config and order has been saved' );
 		},
 		error: function(_req, _text, _error ) {
+			console.log({
+				"req": _req,
+				"text": _text,
+				"error": _error
+			});
 			// warning message if nothing could be saved
 			notify.show_error( 'Feed config could not be saved: \n' + _error  );
 		}
