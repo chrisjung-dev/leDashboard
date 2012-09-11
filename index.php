@@ -1,6 +1,6 @@
 <?php
 
-include( 'inc/user.class.php' );
+include( 'inc/includes.php' );
 
 	function active_user() {
 		//return false;

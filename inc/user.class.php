@@ -8,6 +8,8 @@ class User {
 		$users = json_decode( $usersfile );
 
 		session_start();
+
+		$_SESSION[ 'username' ] = 'cjung';
 	}
 
 	/**
@@ -17,10 +19,12 @@ class User {
 	 * @since 2012.09.11
 	 */
 	public static function get_user_session() {
+		
+		$SID = session_id();
 
-		if ( isset( $_SESSION[ 'username' ] ) ) :
+		if ( !empty( $SID ) ) :
 			
-			$user_name = $_SESSION[ 'username ' ];
+			$user_name = $_SESSION[ 'username' ];
 			return $user_name;
 		
 		else :
