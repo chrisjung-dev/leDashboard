@@ -26,6 +26,7 @@ $file_name = 'config/feeds.json';
 $file_handle = fopen ($file_name, 'w');
 
 if( $file_handle === false ) {
+	// content type?
 	die( '{"error":"Error in saving the file"}' );
 }
 
