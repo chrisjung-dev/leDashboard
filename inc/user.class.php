@@ -2,14 +2,13 @@
 
 class User {
 
-	public function login( _username; _password ) {
+	public static function login( $_username, $_password ) {
 		// get JSON File, Encode, 
-		$users = '';
-		
-		session_start();
-		$_SESSION[ 'username ' ] = 'cjung';
+		$usersfile = file_get_contents( 'config/users.json' );
+		$users = json_decode( $usersfile );
 
-	};
+		session_start();
+	}
 
 	/**
 	 *	Returns the valid Session or false if there is no Session found 
@@ -17,7 +16,7 @@ class User {
 	 * @author Chris Jung <campino2k@gmail.com>
 	 * @since 2012.09.11
 	 */
-	public function get_user_session() {
+	public static function get_user_session() {
 
 		if ( isset( $_SESSION[ 'username' ] ) ) :
 			
@@ -30,8 +29,8 @@ class User {
 
 		endif;
 		
-	};
+	}
 	
-	public function logout() {
-	};
+	public static function logout() {
+	}
 }

@@ -1,7 +1,11 @@
 <?php
 
+include( 'inc/user.class.php' );
+
 	function active_user() {
 		//return false;
+
+		User::login( "hans", "test" );
 		return true;
 	};
 	if( active_user() === false ){
@@ -84,8 +88,8 @@
 		</div>
 	</body>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
 	<script src="js/notification.class.js"></script>
 	<script src="js/feed.class.js"></script>
 	<script src="js/form.feed_add.js"></script>
