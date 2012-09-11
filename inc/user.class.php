@@ -2,7 +2,13 @@
 
 class User {
 
-	function login() {
+	function login( _username, _password ) {
+		// get JSON File, Encode, 
+		$users = '';
+		
+		session_start();
+		$_SESSION[ 'username ' ] = 'cjung';
+
 	}
 
 	/**
@@ -12,6 +18,17 @@ class User {
 	 * @since 2012.09.11
 	 */
 	function get_user_session() {
+
+		if( isset( $_SESSION[ 'username' ] ) :
+			
+			$user_name = $_SESSION[ 'username ' ];
+			return $user_name;
+		
+		: else :
+			
+			return false;
+
+		: endif
 	}
 	
 	function logout() {
