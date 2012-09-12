@@ -2,7 +2,12 @@
 
 include( 'inc/user.class.php' );
 
-$username = User::get_user_session();
-$file = file_get_contents( 'config/' . $username . '/feeds.json' );
+$user_name = User::get_user_session();
+
+if( !$user_name ) {
+	die('{msg:"No User Session"}');
+}
+
+$file = file_get_contents( 'config/' . $user_name . '/feeds.json' );
 
 echo $file;

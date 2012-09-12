@@ -5,8 +5,7 @@ include( 'inc/includes.php' );
 	function active_user() {
 		//return false;
 
-		User::login( "hans", "test" );
-		return true;
+		User::login( "cjung", "test" );
 	};
 	if( active_user() === false ){
 		die( 'No user session' );

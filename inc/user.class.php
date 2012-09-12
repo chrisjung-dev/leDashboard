@@ -1,15 +1,14 @@
 <?php
 
+session_name( 'leDashboard' );
+session_start();
+
 class User {
 
 	public static function login( $_username, $_password ) {
 		// get JSON File, Encode, 
 		$usersfile = file_get_contents( 'config/users.json' );
 		$users = json_decode( $usersfile );
-
-		session_start();
-
-		$_SESSION[ 'username' ] = 'cjung';
 	}
 
 	/**
@@ -23,10 +22,10 @@ class User {
 		$SID = session_id();
 
 		if ( !empty( $SID ) ) :
-			
+
 			$user_name = $_SESSION[ 'username' ];
 			return $user_name;
-		
+
 		else :
 			
 			return false;

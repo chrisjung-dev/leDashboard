@@ -23,7 +23,7 @@ $(function(){
 	 * Load general settings
 	 */
 	$get_settings = $.ajax({
-		url: 'config/settings.json',
+		url: 'read_settings.php',
 		dataType: 'json',
 		async: false,
 		success: function( json ) {
@@ -35,7 +35,7 @@ $(function(){
 	/**
 	 *	Load feed config from json
 	 */
-	$get_feeds = $.getJSON( 'config/feeds.json', function( json ) {
+	$get_feeds = $.getJSON( 'read_feed_config.php', function( json ) {
 		
 		$loaded_feeds = json;
 
