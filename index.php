@@ -1,15 +1,7 @@
 <?php
-
 include( 'inc/includes.php' );
-
-	function active_user() {
-		//return false;
-
-		User::login( "cjung", "test" );
-	};
-	if( active_user() === false ){
-		die( 'No user session' );
-	};
+//User::login( 'cjung', 'test' );
+User::logout();
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,7 +21,25 @@ include( 'inc/includes.php' );
 	</head>
 
 	<body>
+	<?php
+	
+	$active_user = User::get_user_session();
 
+	if( $active_user === false ){
+
+		include( 'inc/login.form.php' );
+
+	} elseif ( $active_user && isset( $_POST ) ) {
+
+		User::login( $_POST[ 'user_name' ], $_POST[ 'password' ] );
+
+		$host  = $_SERVER['HTTP_HOST'];
+		$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+		$extra = 'index.php';
+		header("Location: http://$host$uri/$extra");
+
+		
+	} else { ?>
 		<header>
 			<h1><img src="style/img/dashboard.png"> leDashboard</h1>
 			<div class="menu">
@@ -94,4 +104,5 @@ include( 'inc/includes.php' );
 	<script src="js/form.feed_add.js"></script>
 	<script src="js/form.settings.js"></script>
 	<script src="js/action.js"></script>
+	<?php } ?>
 </html>

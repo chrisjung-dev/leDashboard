@@ -5,10 +5,12 @@ session_start();
 
 class User {
 
-	public static function login( $_username, $_password ) {
+	public static function login( $_user_name, $_password ) {
 		// get JSON File, Encode, 
 		$usersfile = file_get_contents( 'config/users.json' );
 		$users = json_decode( $usersfile );
+
+		$_SESSION[ 'user_name' ] = $_user_name;
 	}
 
 	/**
@@ -23,7 +25,7 @@ class User {
 
 		if ( !empty( $SID ) ) :
 
-			$user_name = $_SESSION[ 'username' ];
+			$user_name = $_SESSION[ 'user_name' ];
 			return $user_name;
 
 		else :
@@ -35,5 +37,6 @@ class User {
 	}
 	
 	public static function logout() {
+		session_destroy();
 	}
 }
