@@ -96,7 +96,7 @@ Feed = function( _id, _config ) {
 					});
 
 					$a = $( '<a/>', {
-						'html': json.data[ item ][ 'title' ],
+						'html': json.data[ item ][ 'title' ] != "" ? json.data[ item ][ 'title' ] : '(no title)',
 						'href': json.data[ item ][ 'permalink' ],
 						'title': json.data[ item ][ 'description' ],
 						'target': '_blank',
