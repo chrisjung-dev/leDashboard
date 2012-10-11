@@ -8,7 +8,28 @@ class User {
 	public static function login( $_user_name, $_password ) {
 		// get JSON File, Encode, 
 		$usersfile = file_get_contents( 'config/users.json' );
-		$users = json_decode( $usersfile );
+		$users = json_decode( $usersfile, true );
+	
+	   switch (json_last_error()) {
+			case JSON_ERROR_DEPTH:
+				die( ' - Maximum stack depth exceeded' );
+			break;
+			case JSON_ERROR_STATE_MISMATCH:
+				die( ' - Underflow or the modes mismatch' );
+			break;
+			case JSON_ERROR_CTRL_CHAR:
+				die( ' - Unexpected control character found' );
+			break;
+			case JSON_ERROR_SYNTAX:
+				die( ' - Syntax error, malformed JSON' ) ;
+			break;
+			case JSON_ERROR_UTF8:
+				die( ' - Malformed UTF-8 characters, possibly incorrectly encoded' );
+			break;
+			default:
+				// do nothing, everything is fine
+			break;
+		}
 
 		if( isset( $users[ $_user_name ] ) ) : 
 
@@ -19,7 +40,7 @@ class User {
 		
 		else : 
 
-			this::logout();
+			User::logout();
 
 		endif;
 	}

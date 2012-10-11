@@ -49,7 +49,7 @@ include( 'inc/includes.php' );
 				<button class="reload_all">reload all</button>
 				<button class="add_feed">Add Feed</button>
 				<button class="settings">Settings</button>
-				<button class="logout">Logout</button>
+				<button class="logout">Logout <?php echo( $active_user ); ?></button>
 			</div>
 		</header>
 
