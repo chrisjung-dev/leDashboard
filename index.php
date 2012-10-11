@@ -1,7 +1,7 @@
 <?php
 include( 'inc/includes.php' );
 //User::login( 'cjung', 'test' );
-User::logout();
+//User::logout();
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,7 +13,8 @@ User::logout();
 		<link rel="shortcut icon" href="style/img/favicon.ico" />
 		<!--link rel="stylesheet" href="style/screen.css" /-->
 
-		<link rel="stylesheet" type="text/css" href="style/css/ledashboard/jquery-ui-1.8.21.custom.css">
+		<!-- link rel="stylesheet" type="text/css" href="style/css/ledashboard/jquery-ui-1.8.21.custom.css" -->
+		<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css">
 		<link rel="stylesheet/less" type="text/css" href="style/less/screen.less">
 		
 		<script src="js/less-1.3.0.min.js" type="text/javascript"></script>
@@ -38,7 +39,6 @@ User::logout();
 		$extra = 'index.php';
 		header("Location: http://$host$uri/$extra");
 
-		
 	} else { ?>
 		<header>
 			<h1><img src="style/img/dashboard.png"> leDashboard</h1>
@@ -46,6 +46,7 @@ User::logout();
 				<button class="reload_all">reload all</button>
 				<button class="add_feed">Add Feed</button>
 				<button class="settings">Settings</button>
+				<button class="logout">Logout</button>
 			</div>
 		</header>
 
@@ -97,12 +98,12 @@ User::logout();
 		</div>
 	</body>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
 	<script src="js/notification.class.js"></script>
 	<script src="js/feed.class.js"></script>
 	<script src="js/form.feed_add.js"></script>
 	<script src="js/form.settings.js"></script>
-	<script src="js/action.js"></script>
+	<script src="js/app.js"></script>
 	<?php } ?>
 </html>

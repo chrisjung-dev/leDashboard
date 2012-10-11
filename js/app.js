@@ -125,9 +125,9 @@ $(function(){
 	 *	Make buttons
 	 */
 	$( 'header .reload_all' ).button({
-	icons: {
-		primary: 'ui-icon-refresh'
-	}
+		icons: {
+			primary: 'ui-icon-refresh'
+		}
 	});
 
 	$( 'header .add_feed' )
@@ -150,6 +150,21 @@ $(function(){
 		.click( function(){
 			open_settings_form();
 		})
+	$( 'header .logout' )
+		.button({
+			icons: { 
+				primary: 'ui-icon-power'
+			}
+		})
+		.click(function(){
+			$.ajax( 'logout.php' );
+			var location_array = location.href.split( '/' );
+			var del = location_array.pop();
+			location_array.push( 'logout.php' );
+			var location_string = location_array.join( '/' );
+
+			location.href = location_string; 
+		});
 });
 
 /**
