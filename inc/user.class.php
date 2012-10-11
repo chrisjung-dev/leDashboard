@@ -25,8 +25,17 @@ class User {
 
 		if ( !empty( $SID ) ) :
 
-			$user_name = $_SESSION[ 'user_name' ];
-			return $user_name;
+			if ( isset( $_SESSION[ 'user_name' ] ) ) :
+
+				$user_name = $_SESSION[ 'user_name' ];
+
+				return $user_name;
+
+			else :
+
+				return false;
+
+			endif;
 
 		else :
 			

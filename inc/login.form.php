@@ -2,8 +2,8 @@
 
 	<fieldset>
 
-		<label for="username">Benutzername:</label>
-		<input type="text" name="username" id="username" />
+		<label for="user_name">Benutzername:</label>
+		<input type="text" name="user_name" id="user_name" />
 		
 		<label for="password">Passwort:</label>
 		<input type="text" name="password" id="password" />

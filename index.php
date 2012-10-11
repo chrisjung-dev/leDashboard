@@ -1,7 +1,5 @@
 <?php
 include( 'inc/includes.php' );
-//User::login( 'cjung', 'test' );
-//User::logout();
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,15 +20,20 @@ include( 'inc/includes.php' );
 	</head>
 
 	<body>
+	
 	<?php
 	
 	$active_user = User::get_user_session();
 
-	if( $active_user === false ){
+	if(	$active_user === false 
+		&& !isset( $_POST[ 'user_name' ] ) 
+		&& !isset( $_POST[ 'password' ] ) ){
 
 		include( 'inc/login.form.php' );
 
-	} elseif ( $active_user && isset( $_POST ) ) {
+	} elseif ( $active_user === false 
+				&& isset( $_POST[ 'user_name' ] ) 
+				&& isset( $_POST[ 'password' ] ) ) {
 
 		User::login( $_POST[ 'user_name' ], $_POST[ 'password' ] );
 
@@ -58,7 +61,7 @@ include( 'inc/includes.php' );
 			<p>2012, <a href="http://campino2k.de">Christian Jung</a> | Fork me on <a href="http://github.com/campino2k/leDashboard">Github</a> | Dashboard Icon <a href="http://creativecommons.org/licenses/by/3.0/">CC-BY</a> from <a href="http://www.doublejdesign.co.uk/products-page/icons/super-mono-icons/">Double-J Design's "Super Mono" Iconset</a></p>
 		</footer>
 
-		<div id="new-feed-form" title="Add new feed">
+		<div id="new-feed-form" title="Add new feed" style="display:none;">
 			<p class="validateTips">All form fields are required.</p>
 
 			<form>
@@ -77,7 +80,7 @@ include( 'inc/includes.php' );
 			</form>
 		</div>
 
-		<div id="settings-form" title="Settings">
+		<div id="settings-form" title="Settings" style="display:none;">
 			<p class="validateTips">All form fields are required.</p>
 
 			<form>
