@@ -10,7 +10,18 @@ class User {
 		$usersfile = file_get_contents( 'config/users.json' );
 		$users = json_decode( $usersfile );
 
-		$_SESSION[ 'user_name' ] = $_user_name;
+		if( isset( $users[ $_user_name ] ) ) : 
+
+			$_SESSION[ 'user_name' ] = $_user_name;
+
+			// TODO: Password check!
+			// TODO: Error handling!
+		
+		else : 
+
+			this::logout();
+
+		endif;
 	}
 
 	/**
