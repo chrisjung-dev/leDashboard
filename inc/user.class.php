@@ -23,9 +23,9 @@ class User {
 			case JSON_ERROR_SYNTAX:
 				die( ' - Syntax error, malformed JSON' ) ;
 			break;
-			case JSON_ERROR_UTF8:
-				die( ' - Malformed UTF-8 characters, possibly incorrectly encoded' );
-			break;
+#			case JSON_ERROR_UTF8:
+#				die( ' - Malformed UTF-8 characters, possibly incorrectly encoded' );
+#			break;
 			default:
 				// do nothing, everything is fine
 			break;
@@ -34,6 +34,9 @@ class User {
 		if( isset( $users[ $_user_name ] ) ) : 
 
 			$_SESSION[ 'user_name' ] = $_user_name;
+			$_SESSION[ 'full_name' ] = $users[ $_user_name ][ 'fullname' ];
+
+			var_dump( $_SESSION );
 
 			// TODO: Password check!
 			// TODO: Error handling!

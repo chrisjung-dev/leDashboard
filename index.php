@@ -24,7 +24,7 @@ include( 'inc/includes.php' );
 	<?php
 	
 	$active_user = User::get_user_session();
-
+	
 	if(	$active_user === false 
 		&& !isset( $_POST[ 'user_name' ] ) 
 		&& !isset( $_POST[ 'password' ] ) ){
@@ -49,7 +49,7 @@ include( 'inc/includes.php' );
 				<button class="reload_all">reload all</button>
 				<button class="add_feed">Add Feed</button>
 				<button class="settings">Settings</button>
-				<button class="logout">Logout <?php echo( $active_user ); ?></button>
+				<button class="logout">Logout <?php echo( $_SESSION[ 'full_name' ] ); ?></button>
 			</div>
 		</header>
 
