@@ -6,7 +6,7 @@
 		<input type="text" name="user_name" id="user_name" />
 		
 		<label for="password">Passwort:</label>
-		<input type="text" name="password" id="password" />
+		<input type="password" name="password" id="password" />
 		
 	</fieldset>
 
