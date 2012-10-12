@@ -4,6 +4,9 @@
 	max-width: 1200px;
 
 	.feed {
+		/*
+		 * standard: 3 columns
+		 */
 		margin: 1%;
 		width: 31% ;
 		display: inline-block;
@@ -88,10 +91,22 @@
 
 					position: absolute;
 					left: 0px;
-					content: url("../img/triangle.png");
+					top: 0.5em;
+					content: "";
+					border: 0.4em solid transparent;
+					border-left-color: #01ABEB;
+					border-left-width: 0.55em;
 				}
 				&.opened:before {
+					margin-top: 0.2em;
+//					border: 0.4em solid transparent;
+//					border-left-color: transparent;
+//					border-top-color: #01ABEB;
+//					border-top-width: 0.55em;
 					-webkit-transform: rotate(90deg);
+					   -moz-transform: rotate(90deg);
+					     -o-transform: rotate(90deg);
+					        transform: rotate(90deg);
 				}
 
 				a {
@@ -121,5 +136,15 @@
 			
 			font-size: 0.6em;
 		}
+	}
+
+	&.col2 .feed {
+			width: 48%;
+	}
+	&.col4 .feed {
+			width: 23%;
+	}
+	&.col5 .feed {
+			width: 18%;
 	}
 }

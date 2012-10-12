@@ -25,10 +25,29 @@ $settings_form = $( '#settings-form' ).dialog({
 		'Save settings' : function() {
 			// TODO Validate Settings
 			// TODO Renew Timeout settings for feeds
+
+			$settings.columns = $settings_cols.val();
+			$settings.background = $settings_background.val();
+			$settings.reloadtime = $settings_reloadtime.val();
+
 			save_settings( $settings );
+
+			applySettings();
+			$( this ).dialog( 'close' );
 		},
 		'Cancel' : function() {
 			$( this ).dialog( 'close' );
 		}
 	}
 })
+
+applySettings = function() {
+	
+	console.log( 'Settings applied' );
+	/**
+	 *	Apply Feed Settings
+	 */
+	$( '#feeds' )
+		.removeClass( 'col2 col3 col4 col5'  )
+		.addClass( 'col' + $settings.columns );
+}
