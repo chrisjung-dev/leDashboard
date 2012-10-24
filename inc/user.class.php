@@ -31,18 +31,19 @@ class User {
 			break;
 		}
 
-		if( isset( $users[ $_user_name ] ) ) : 
+		if( isset( $users[ $_user_name ] ) && $users[ $_user_name ][ 'password'] === sha1( $_password ) ) : 
 
 			$_SESSION[ 'user_name' ] = $_user_name;
 			$_SESSION[ 'full_name' ] = $users[ $_user_name ][ 'fullname' ];
 
-			var_dump( $_SESSION );
-
 			// TODO: Password check!
 			// TODO: Error handling!
 		
+			var_dump( $_SESSION );
+
 		else : 
 
+			die( 'whoopsie' . sha1( $_password ) );
 			User::logout();
 
 		endif;
