@@ -78,6 +78,18 @@ $(function(){
 				},
 				text: false
 			}).appendTo( buttons );
+			
+			var deleteFeedButton = $('<a/>', {
+				"text": "delete",
+				"click": function() {
+					alert( "//TODO: IMPLEMENT FEED REMOVAL!" );
+				}
+			}).button({
+				"icons": {
+					"primary": "ui-icon-close"
+				},
+				"text": false
+			}).appendTo( buttons )
 
 			var editButton = $( '<a/>', {
 				'text': 'edit',
