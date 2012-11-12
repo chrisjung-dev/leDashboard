@@ -1,4 +1,6 @@
-<form method="POST" action="index.php">
+<form id="login" method="POST" action="index.php">
+
+	<h1><img src="style/img/dashboard.png"> leDashboard</h1>
 
 	<fieldset>
 
@@ -8,24 +10,8 @@
 		<label for="password">Passwort:</label>
 		<input type="password" name="password" id="password" />
 		
+		<button>Login</button>
+
 	</fieldset>
 
 </form>
-
-<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
-
-<script>
-	$( 'form' ).dialog( {
-		title: "Login-Daten",
-		modal: true,
-		resizable: false,
-		draggable: false,
-		closeOnEscape: false,
-		buttons: {
-			"Login": function() {
-				$( 'form' ).submit();
-			}
-		}
-	});
-</script>

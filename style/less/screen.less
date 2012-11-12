@@ -13,15 +13,20 @@
 @lightBlue: #01abeb;
 
 body {
+	position: relative;
 	color: @textColor;
 	font-family: "Droid Sans", sans;
 
 	background: @bodyBgColor; 
+
+	min-height: 700px;
+	height: 100%;
 }
 
 @import "header.less";
 @import "feeds.less";
 @import "footer.less";
+@import "form.login.less";
 
 @import "form.add_feed.less";
 @import "mobile.phone.less";
