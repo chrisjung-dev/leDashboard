@@ -8,13 +8,8 @@ $(function(){
 		forcePlaceholderSize: true,
 		placeholder: 'feed placeholder',
 		stop: function( event, ui ) {
-			var $save_feeds = {};
 
-			$( '#feeds .feed' ).each(function(index) {
-				$save_feeds[ $( this ).attr( 'id' ) ] = $loaded_feeds[ $( this ).attr( 'id' ) ];
-			});
-
-			save_feed_config( $save_feeds );
+			save_feed_config( get_active_feeds() );
 
 		}
 	});
@@ -82,7 +77,24 @@ $(function(){
 			var deleteFeedButton = $('<a/>', {
 				"text": "delete",
 				"click": function() {
-					alert( "//TODO: IMPLEMENT FEED REMOVAL!" );
+					$this_id = $(this).parents( '.feed' ).attr( 'id' );
+
+					$( "#dialog-confirm" ).dialog({
+						resizable: false,
+						height:160,
+						modal: true,
+						buttons: {
+							"Delete items": function() {
+
+								$( '#' + $this_id ).remove();
+								save_feed_config( get_active_feeds() );
+								$( this ).dialog( "close" );
+							},
+							Cancel: function() {
+								$( this ).dialog( "close" );
+							}
+						}
+					});
 				}
 			}).button({
 				"icons": {
@@ -181,7 +193,20 @@ $(function(){
 });
 
 /**
- *	Save the configured Feeds
+ *	Get all shown feeds from DOM and return reordered feed object to save
+ */
+var get_active_feeds = function(){
+	var $save_feeds = {};
+
+	$( '#feeds .feed' ).each(function(index) {
+		$save_feeds[ $( this ).attr( 'id' ) ] = $loaded_feeds[ $( this ).attr( 'id' ) ];
+	});
+
+	return $save_feeds;
+}
+
+/**
+ *	Save the configured feeds
  */
 var save_feed_config = function( _feeds ) {
 
@@ -201,6 +226,8 @@ var save_feed_config = function( _feeds ) {
 			$loaded_feeds = _feeds;
 
 			notify.show_notification( 'Feed config and order has been saved' );
+
+			return true;
 		},
 		error: function(_req, _text, _error ) {
 			console.log({
@@ -210,6 +237,7 @@ var save_feed_config = function( _feeds ) {
 			});
 			// warning message if nothing could be saved
 			notify.show_error( 'Feed config could not be saved: \n' + _error  );
+			return false;
 		}
 	})
 }
@@ -225,9 +253,12 @@ var save_settings = function( _settings ) {
 
 			$settings = _settings;
 			notify.show_notification( 'Settings have been saved successfully' );
+
+			return true;
 		},
 		error: function( _req, _text, _error ){
 			notify.show_error( 'Settings config could not be saved: \n' + _error  );
+			return false;
 		}
 	});
 }

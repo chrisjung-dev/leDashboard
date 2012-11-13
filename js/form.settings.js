@@ -42,8 +42,6 @@ $settings_form = $( '#settings-form' ).dialog({
 })
 
 applySettings = function() {
-	
-	console.log( 'Settings applied' );
 	/**
 	 *	Apply Feed Settings
 	 */

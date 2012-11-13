@@ -47,7 +47,7 @@ Feed = function( _id, _config ) {
 	} 
 
 	/**
-	 * get feed contents via JSON and render link list
+	 *	get feed contents via JSON and render link list
 	 * Parameters: _feed
 	 */
 	var get_single_feed_content = function() {
@@ -125,7 +125,7 @@ Feed = function( _id, _config ) {
 	}
 
 	/**
-	 * reload a single feed
+	 *	reload a single feed
 	 * - triggered by reload button in feeds
 	 * - triggered for all feeds by reloadall button
 	 */
@@ -136,4 +136,5 @@ Feed = function( _id, _config ) {
 		$( '#' + this.id + ' div' ).addClass( 'loading' ).empty();
 		get_single_feed_content( self.id );
 	}
+
 }

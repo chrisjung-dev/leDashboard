@@ -1,5 +1,13 @@
 <?php
 
+include( 'inc/user.class.php' );
+
+$user_name = User::get_user_session();
+
+if( !$user_name ) {
+	die('{msg:"No User Session"}');
+}
+
 /**
  *	recieve json string with feed config
  */
@@ -18,7 +26,7 @@ if( json_last_error() != JSON_ERROR_NONE ) {
 
 // Datei schreiben mit PHP
 // Name der Datei, die beschrieben werden soll, festlegen.
-$file_name = 'config/feeds.json';
+$file_name = 'config/' . $user_name . '/feeds.json';
 
 // Datei zum Schreiben öffen. Existiert die Datei bereits,
 // so wird diese überschrieben, da der File Pointer automatisch

@@ -99,6 +99,9 @@ include( 'inc/includes.php' );
 				</fieldset>
 			</form>
 		</div>
+		<div id="dialog-confirm" title="Really delete the feed?" style="display:none;">
+			<p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>This items will be permanently deleted and cannot be recovered. Are you sure?</p>
+		</div>
 	</body>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
