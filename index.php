@@ -29,7 +29,7 @@ include( 'inc/includes.php' );
 		&& !isset( $_POST[ 'user_name' ] ) 
 		&& !isset( $_POST[ 'password' ] ) ){
 
-		include( 'inc/login.form.php' );
+		include( 'inc/form.login.php' );
 
 	} elseif ( $active_user === false 
 				&& isset( $_POST[ 'user_name' ] ) 
@@ -39,7 +39,7 @@ include( 'inc/includes.php' );
 
 		$host  = $_SERVER['HTTP_HOST'];
 		$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-		$extra = 'index.php';
+		$extra = '';
 		header("Location: http://$host$uri/$extra");
 
 	} else { ?>
