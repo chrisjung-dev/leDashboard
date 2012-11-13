@@ -9,7 +9,9 @@
 		
 		<label for="password">Passwort:</label>
 		<input type="password" name="password" id="password" />
-		
+
+		<label><input name="permanent" id="permanent" type="checkbox"> Keep me logged in</label>
+
 		<button>Login</button>
 
 	</fieldset>

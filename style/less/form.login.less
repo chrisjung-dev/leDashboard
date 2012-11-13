@@ -29,7 +29,8 @@ form#login {
 		width: 400px;
 	}
 
-	input {
+	input[type="text"] ,
+	input[type="password"] {
 		display: block;
 		width: 400px-(2*3);
 
@@ -46,12 +47,16 @@ form#login {
 			box-shadow: 0 0 3px #669;
 		}
 	}
+	input[type="checkbox"] {
+		display: inline;
+	}
 
 	button {
 		width: 100%;
 		border-radius: 3px;
 		border: none;
 		padding: 0.2em;
+		margin: 0.5em 0;
 		
 		color: #fff;
 		box-shadow: 0 0 2px #000;

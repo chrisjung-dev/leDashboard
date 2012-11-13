@@ -5,7 +5,7 @@ session_start();
 
 class User {
 
-	public static function login( $_user_name, $_password ) {
+	public static function login( $_user_name, $_password, $_permanent = false ) {
 		// get JSON File, Encode, 
 		$usersfile = file_get_contents( 'config/users.json' );
 		$users = json_decode( $usersfile, true );
