@@ -43,6 +43,9 @@ Feed = function( _id, _config ) {
 		} else {
 			$( '#' + self.id ).html( '<h2><a href="' + url  + '">' + title + '</a></h2><div class="loading"></div>' );
 		}
+
+		var spinner = new Spinner().spin( $( '#' + self.id + ' > .loading' )[0] );
+
 		get_single_feed_content();
 	} 
 
