@@ -62,9 +62,14 @@
 		div {
 			padding: 1em;
 
+
 			&.loading {
 				min-height: 5em;
-				background: transparent url( "../img/loading.gif" ) no-repeat center center;
+
+				.spinner div {
+					min-height: auto;
+					padding: 0;
+				}
 			}
 		}
 
