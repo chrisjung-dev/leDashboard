@@ -15,7 +15,7 @@ include( 'inc/includes.php' );
 		<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css">
 		<link rel="stylesheet/less" type="text/css" href="style/less/screen.less">
 		
-		<script src="js/lib/less-1.3.0.min.js" type="text/javascript"></script>
+		<script src="js/lib/less-1.3.1.min.js" type="text/javascript"></script>
 
 	</head>
 
