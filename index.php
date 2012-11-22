@@ -107,8 +107,6 @@ include( 'inc/includes.php' );
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 
-	<script src="js/lib/spin-1.2.7.min.js"></script>
-
 	<script src="js/notification.class.js"></script>
 	<script src="js/feed.class.js"></script>
 	<script src="js/form.feed_add.js"></script>

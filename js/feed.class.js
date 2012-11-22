@@ -30,24 +30,6 @@ Feed = function( _id, _config ) {
 	 *	Get all the feeds and create "Widgets" for them
 	 */
 	var render_widget = function() {
-		
-		var spinner = new Spinner({
-			lines: 13, // The number of lines to draw
-			length: 5, // The length of each line
-			width: 3, // The line thickness
-			radius: 10, // The radius of the inner circle
-			corners: 1, // Corner roundness (0..1)
-			rotate: 0, // The rotation offset
-			color: '#000', // #rgb or #rrggbb
-			speed: 1, // Rounds per second
-			trail: 60, // Afterglow percentage
-			shadow: false,//true, // Whether to render a shadow
-			hwaccel: true, // Whether to use hardware acceleration
-			className: 'spinner', // The CSS class to assign to the spinner
-			zIndex: 2e9, // The z-index (defaults to 2000000000)
-			top: 'auto', // Top position relative to parent in px
-			left: 'auto' // Left position relative to parent in px
-		});
 
 		if( $( '#' + self.id ).length === 0 ) {
 			$( '#feeds' ).append(
@@ -61,7 +43,6 @@ Feed = function( _id, _config ) {
 			$( '#' + self.id ).html( '<h2><a href="' + url  + '">' + title + '</a></h2><div class="loading"></div>' );
 		}
 
-		spinner.spin( $( '#' + self.id + '>.loading' )[0] );
 		get_single_feed_content();
 	}
 
@@ -126,10 +107,10 @@ Feed = function( _id, _config ) {
 						}
 					});
 					$li.append( $a );
-//					$ul.append( $li );
+					$ul.append( $li );
 
 					// remove the loading animation
-//					$ul.parents( '.feed>.loading' ).spin( false ).removeClass( 'loading' );
+					$ul.parents( '.feed>.loading' ).removeClass( 'loading' );
 
 					// use enties -1 since "item" will be an index
 					if( entries && 
@@ -153,7 +134,6 @@ Feed = function( _id, _config ) {
 		 * remove old list and add loading icon
 		 */
 		$( '#' + this.id + '> div' ).addClass( 'loading' ).empty()
-			.spin();
 		get_single_feed_content( self.id );
 	}
 
