@@ -13,12 +13,12 @@ include( 'inc/includes.php' );
 		<!-- link rel="stylesheet" type="text/css" href="style/css/ledashboard/jquery-ui-1.8.21.custom.css" -->
 		<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css">
 		
-		<!-- less.js  - ->	
+		<!-- less.js  -->	
 		<link rel="stylesheet/less" type="text/css" href="style/less/screen.less">
 		<script src="js/lib/less-1.3.1.min.js" type="text/javascript"></script>
 		<!-- less.js end  -->	
 		
-		<!-- CSS Version -->
+		<!-- CSS Version - ->
 		<link rel="stylesheet" href="style/css/screen.css" />
 		<!-- CSS Version end -->
 
