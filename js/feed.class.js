@@ -106,6 +106,7 @@ Feed = function( _id, _config ) {
 							evt.stopPropagation();
 						}
 					});
+					$li.append( '<i/>' );
 					$li.append( $a );
 					$ul.append( $li );
 

@@ -87,9 +87,10 @@
 
 				position: relative;
 
-				&:before {
+				//&:before {
+				i {
 					-webkit-transition-property: rotate;
-					-webkit-transition-duration: 1s;
+					-webkit-transition-duration: 0.2s;
 
 					position: absolute;
 					left: 0px;
@@ -102,7 +103,8 @@
 					border-width: 5px 0 5px 8.7px;
 					border-color: transparent transparent transparent #01adeb;
 				}
-				&.opened:before {
+				//&.opened:before {
+				&.opened i {
 					-webkit-transform: rotate(90deg);
 					   -moz-transform: rotate(90deg);
 					     -o-transform: rotate(90deg);
