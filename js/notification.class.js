@@ -3,11 +3,10 @@
  * @dependencies jQuery
  */
 
-NotificationSystem = function( _config ) {
+var NotificationSystem = function() {
 
-	self = this;
-
-	var config = _config;
+	//var self = this;
+	//var config = _config;
 
 	this.init = function() {
 		// create notification space
@@ -21,9 +20,8 @@ NotificationSystem = function( _config ) {
 					'width': '300px'
 				}
 			}).appendTo( $( 'body' ) );
-
 		}
-	}
+	};
 
 	this.show_notification = function( _text ) {
 		var notification = $( '<div/>', {
@@ -39,8 +37,8 @@ NotificationSystem = function( _config ) {
 			.delay( 2000 )
 			.fadeOut( 'slow', function(){
 				$( this ).remove();
-			})
-	}
+			});
+	};
 
 	this.show_error = function( _text ) {
 		var notification = $( '<div/>', {
@@ -56,11 +54,9 @@ NotificationSystem = function( _config ) {
 			.delay( 2000 )
 			.fadeOut( 'slow', function(){
 				$( this ).remove();
-			})
-	}
+			});
+	};
+};
 
-
-}
-
-var notify = new NotificationSystem;
+var notify = new NotificationSystem();
 	notify.init();

@@ -23,6 +23,23 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+
+		jshint: {
+			options: {
+				curly: true,
+				eqeqeq: true,
+				quotmark: "single",
+				undef: true,
+				unused: true,
+				trailing: true,
+				globals: {
+					jQuery: true,
+					"$settings": true,
+					"$" : true
+				}
+			},
+			src: ["js/*.js"]
+		},
 		
 		/*
 			Watch less files
@@ -37,6 +54,7 @@ module.exports = function(grunt) {
 	});
 
 
+	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-watch');
