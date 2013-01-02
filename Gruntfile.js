@@ -30,15 +30,25 @@ module.exports = function(grunt) {
 				eqeqeq: true,
 				quotmark: "single",
 				undef: true,
-				unused: true,
+				unused: false,
 				trailing: true,
 				globals: {
 					jQuery: true,
+					$ : true,
+					"browser" : true,
+					"feeds": true,
 					"$settings": true,
-					"$" : true
+					"save_settings" : true,
+					"$loaded_feeds": true,
+					"Feed": true,
+					"notify": true
 				}
 			},
-			src: ["js/*.js"]
+			src: [
+				"js/feed.class.js"
+				, "js/notigication.class.js"
+				, "js/app.js"
+			]
 		},
 		
 		/*

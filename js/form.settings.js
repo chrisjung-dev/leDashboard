@@ -5,11 +5,11 @@ var $settings_cols = $( '#columns' ),
 	$settings_background = $( '#background_url' ),
 	$settings_reloadtime = $( '#reload_time' );
 
-open_settings_form = function() {
+var open_settings_form = function() {
 	$settings_form.dialog( 'open' );
 };
 
-$settings_form = $( '#settings-form' ).dialog({
+var $settings_form = $( '#settings-form' ).dialog({
 	autoOpen: false,
 	width: 350,
 	modal: true,
@@ -39,13 +39,13 @@ $settings_form = $( '#settings-form' ).dialog({
 			$( this ).dialog( 'close' );
 		}
 	}
-})
+});
 
-applySettings = function() {
+var applySettings = function() {
 	/**
 	 *	Apply Feed Settings
 	 */
 	$( '#feeds' )
 		.removeClass( 'col2 col3 col4 col5'  )
 		.addClass( 'col' + $settings.columns );
-}
+};

@@ -17,7 +17,7 @@ $(function(){
 	/**
 	 * Load general settings
 	 */
-	$get_settings = $.ajax({
+	var $get_settings = $.ajax({
 		url: 'read_settings.php',
 		dataType: 'json',
 		async: false,
@@ -31,11 +31,11 @@ $(function(){
 	/**
 	 *	Load feed config from json
 	 */
-	$get_feeds = $.getJSON( 'read_feed_config.php', function( json ) {
+	var $get_feeds = $.getJSON( 'read_feed_config.php', function( json ) {
 		
 		$loaded_feeds = json;
 
-		for( feed_id in json ) {
+		for( var feed_id in json ) {
 			var newFeed = new Feed( feed_id, json[ feed_id ] );
 			newFeed.init();
 			feeds[ feed_id ] = newFeed;
@@ -44,10 +44,10 @@ $(function(){
 
 
 	/**
-	 * 	Show / hide buttons when hovering the feed widgets
+	 *	Show / hide buttons when hovering the feed widgets
 	 */
 	//$( '.feed', '#feeds' ).hover(
-	$( '#feeds' ).on( 'mouseenter', '.feed',  
+	$( '#feeds' ).on( 'mouseenter', '.feed',
 		function(){
 			var buttons = $('<span/>', {
 				'class': 'buttons'
@@ -56,7 +56,7 @@ $(function(){
 			var reloadbutton = $( '<a/>', {
 				'text': 'reload',
 				'click': function(){
-					feeds[ $(this).parents( '.feed' ).attr( 'id' ) ].reload_feed()
+					feeds[ $(this).parents( '.feed' ).attr( 'id' ) ].reload_feed();
 				}
 			}).button({
 				icons: {
@@ -66,7 +66,7 @@ $(function(){
 			}).appendTo( buttons );
 			
 			var togglebutton = $( '<a/>', {
-				'text': 'mini/maxi',
+				'text': 'mini/maxi'
 			}).button({
 				icons: {
 					primary: 'ui-icon-minus'
@@ -75,38 +75,38 @@ $(function(){
 			}).appendTo( buttons );
 			
 			var deleteFeedButton = $('<a/>', {
-				"text": "delete",
-				"click": function() {
+				'text': 'delete',
+				'click': function() {
 					$this_id = $(this).parents( '.feed' ).attr( 'id' );
 
-					$( "#dialog-confirm" ).dialog({
+					$( '#dialog-confirm' ).dialog({
 						resizable: false,
 						height:160,
 						modal: true,
 						buttons: {
-							"Delete items": function() {
+							'Delete items': function() {
 
 								$( '#' + $this_id ).remove();
 								save_feed_config( get_active_feeds() );
-								$( this ).dialog( "close" );
+								$( this ).dialog( 'close' );
 							},
 							Cancel: function() {
-								$( this ).dialog( "close" );
+								$( this ).dialog( 'close' );
 							}
 						}
 					});
 				}
 			}).button({
-				"icons": {
-					"primary": "ui-icon-close"
+				'icons': {
+					'primary': 'ui-icon-close'
 				},
-				"text": false
-			}).appendTo( buttons )
+				'text': false
+			}).appendTo( buttons );
 
 			var editButton = $( '<a/>', {
 				'text': 'edit',
 				'click': function() {
-					$this_id =$(this).parents( '.feed' ).attr( 'id' ); 
+					$this_id =$(this).parents( '.feed' ).attr( 'id' );
 					$this_item = $loaded_feeds[ $this_id ];
 
 					$id.val( $this_id );
@@ -122,7 +122,7 @@ $(function(){
 				icons: {
 					primary: 'ui-icon-wrench'
 				},
-				text: false,
+				text: false
 			}).appendTo( buttons );
 
 			// make the buttons stick together
@@ -130,18 +130,19 @@ $(function(){
 		
 			$( this ).prepend( buttons );
 		}
-	)
+	);
+
 	$( '#feeds' ).on( 'mouseleave', '.feed',
 		function(){
 			$( this ).find( '.buttons' ).remove();
 		}
-	)
+	);
 
 	/**
 	 *	implement "reload all"
 	 */
 	$( 'header .reload_all' ).click( function() {
-		for( feed in feeds ){
+		for( var feed in feeds ){
 			feeds[ feed ].reload_feed();
 		}
 	});
@@ -174,10 +175,11 @@ $(function(){
 		})
 		.click( function(){
 			open_settings_form();
-		})
+		});
+
 	$( 'header .logout' )
 		.button({
-			icons: { 
+			icons: {
 				primary: 'ui-icon-power'
 			}
 		})
@@ -188,29 +190,10 @@ $(function(){
 			location_array.push( 'logout.php' );
 			var location_string = location_array.join( '/' );
 
-			location.href = location_string; 
+			location.href = location_string;
 		});
 });
  
-/**
- *	simple jQuery plugin for spin.js
- */
-$.fn.spin = function(opts) {
-	this.each(function() {
-		var $this = $(this),
-		data = $this.data();
-
-		if (data.spinner) {
-			data.spinner.stop();
-			delete data.spinner;
-		}
-		if (opts !== false) {
-			data.spinner = new Spinner($.extend({color: $this.css('color')}, opts)).spin(this);
-		}
-	});
-	return this;
-};
-
 /**
  *	Get all shown feeds from DOM and return reordered feed object to save
  */
@@ -222,7 +205,7 @@ var get_active_feeds = function(){
 	});
 
 	return $save_feeds;
-}
+};
 
 /**
  *	Save the configured feeds
@@ -249,17 +232,19 @@ var save_feed_config = function( _feeds ) {
 			return true;
 		},
 		error: function(_req, _text, _error ) {
+			/*
 			console.log({
-				"req": _req,
-				"text": _text,
-				"error": _error
+				'req': _req,
+				'text': _text,
+				'error': _error
 			});
+			*/
 			// warning message if nothing could be saved
 			notify.show_error( 'Feed config could not be saved: \n' + _error  );
 			return false;
 		}
-	})
-}
+	});
+};
 
 var save_settings = function( _settings ) {
 	$.ajax({
@@ -280,4 +265,4 @@ var save_settings = function( _settings ) {
 			return false;
 		}
 	});
-}
+};
