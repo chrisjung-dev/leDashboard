@@ -32,10 +32,14 @@ module.exports = function(grunt) {
 				undef: true,
 				unused: false,
 				trailing: true,
+
+				jquery: true,
+				browser: true,
+				devel: true,
+
 				globals: {
 					jQuery: true,
 					$ : true,
-					"browser" : true,
 					"feeds": true,
 					"$settings": true,
 					"save_settings" : true,
@@ -49,6 +53,7 @@ module.exports = function(grunt) {
 				, "js/notigication.class.js"
 				, "js/app.js"
 			]
+
 		},
 		
 		/*
