@@ -6,6 +6,7 @@ session_start();
 class User {
 
 	public static function login( $_user_name, $_password, $_permanent = false ) {
+		
 		// get JSON File, Encode, 
 		$usersfile = file_get_contents( 'config/users.json' );
 		$users = json_decode( $usersfile, true );
@@ -31,15 +32,14 @@ class User {
 			break;
 		}
 
-		if( isset( $users[ $_user_name ] ) && $users[ $_user_name ][ 'password'] === sha1( $_password ) ) : 
+		if( isset( $users[ $_user_name ] ) 
+			&& $users[ $_user_name ][ 'password'] === sha1( $_password ) ) : 
 
 			$_SESSION[ 'user_name' ] = $_user_name;
 			$_SESSION[ 'full_name' ] = $users[ $_user_name ][ 'fullname' ];
 
 			// TODO: Password check!
 			// TODO: Error handling!
-		
-			var_dump( $_SESSION );
 
 		else : 
 
