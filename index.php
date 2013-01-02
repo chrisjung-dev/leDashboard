@@ -13,12 +13,12 @@ include( 'inc/includes.php' );
 		<!-- link rel="stylesheet" type="text/css" href="style/css/ledashboard/jquery-ui-1.8.21.custom.css" -->
 		<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css">
 		
-		<!-- less.js  -->	
+		<!-- less.js  -x->
 		<link rel="stylesheet/less" type="text/css" href="style/less/screen.less">
 		<script src="js/lib/less-1.3.1.min.js" type="text/javascript"></script>
-		<!-- less.js end  -->	
+		<!-x- less.js end  -->	
 		
-		<!-- CSS Version - ->
+		<!-- CSS Version -->
 		<link rel="stylesheet" href="style/css/screen.css" />
 		<!-- CSS Version end -->
 
@@ -40,7 +40,7 @@ include( 'inc/includes.php' );
 				&& isset( $_POST[ 'user_name' ] ) 
 				&& isset( $_POST[ 'password' ] ) ) {
 
-		User::login( $_POST[ 'user_name' ], $_POST[ 'password' ] );
+		User::login( $_POST[ 'user_name' ], $_POST[ 'password' ], $_POST[ 'permanent' ] );
 
 		$host  = $_SERVER['HTTP_HOST'];
 		$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');

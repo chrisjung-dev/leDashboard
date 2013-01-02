@@ -1,0 +1,13 @@
+{
+  "name": "leDashboard",
+  "author": "Chris Jung <campino2k@gmail.com>",
+  "version": "0.1.0-beta",
+  "description": "An open source alternative for iGoogle",
+  "licence": "GPLv2",
+  "devDependencies": {
+    "grunt": "~0.4.0rc4",
+    "grunt-contrib-less": "~0.3.2",
+    "grunt-contrib-concat": "~0.1.1",
+    "grunt-contrib-watch": "~0.1.4"
+  }
+}
