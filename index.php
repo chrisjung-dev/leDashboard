@@ -116,6 +116,6 @@ include( 'inc/includes.php' );
 	<script src="js/feed.class.js"></script>
 	<script src="js/form.feed_add.js"></script>
 	<script src="js/form.settings.js"></script>
-	<script src="js/app.js"></script>
+	<script src="js/ledashboard.js"></script>
 	<?php } ?>
 </html>

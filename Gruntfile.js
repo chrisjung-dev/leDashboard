@@ -51,7 +51,7 @@ module.exports = function(grunt) {
 			src: [
 				"js/feed.class.js"
 				, "js/notigication.class.js"
-				, "js/app.js"
+				, "js/ledashboard.js"
 			]
 
 		},
