@@ -77,7 +77,7 @@ $(function(){
 			var deleteFeedButton = $('<a/>', {
 				'text': 'delete',
 				'click': function() {
-					$this_id = $(this).parents( '.feed' ).attr( 'id' );
+					var $this_id = $(this).parents( '.feed' ).attr( 'id' );
 
 					$( '#dialog-confirm' ).dialog({
 						resizable: false,
@@ -106,8 +106,8 @@ $(function(){
 			var editButton = $( '<a/>', {
 				'text': 'edit',
 				'click': function() {
-					$this_id =$(this).parents( '.feed' ).attr( 'id' );
-					$this_item = $loaded_feeds[ $this_id ];
+					var $this_id =$(this).parents( '.feed' ).attr( 'id' );
+					var $this_item = $loaded_feeds[ $this_id ];
 
 					$id.val( $this_id );
 					$site_url.val( $this_item.url  );
