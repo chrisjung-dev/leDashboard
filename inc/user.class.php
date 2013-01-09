@@ -43,7 +43,7 @@ class User {
 
 		else : 
 
-			die( 'whoopsie' . sha1( $_password ) );
+			die( 'whoopsie: ' . sha1( $_password ) );
 			User::logout();
 
 		endif;
