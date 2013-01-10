@@ -10,6 +10,7 @@
     "grunt-contrib-concat": "~0.1.1",
     "grunt-contrib-watch": "~0.1.4",
     "grunt-jslint": "~0.2.3-1",
-    "grunt-contrib-jshint": "~0.1.0"
+    "grunt-contrib-jshint": "~0.1.0",
+    "grunt-recess": "~0.2.0"
   }
 }

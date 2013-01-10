@@ -24,6 +24,18 @@ module.exports = function(grunt) {
 			}
 		},
 
+		recess: {
+			dev: {
+				src: [ 'style/less/screen.less' ],
+				options: {
+					noIDs: false,
+					noUnderscores: false,
+					noOverqualifying: false,
+					noUniversalSelectors: false
+				}
+			}
+		},
+
 		jshint: {
 			options: {
 				curly: true,
@@ -86,6 +98,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-recess');
 
 	// Default task
 	grunt.registerTask('default', ['less:dev']);
