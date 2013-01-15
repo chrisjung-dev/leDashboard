@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>leDashboard</title>
-		<link rel="shortcut icon" href="style/img/favicon.ico" />
+<?php include( 'inc/header.php' ); ?>	
 
-		<!-- link rel="stylesheet" type="text/css" href="style/css/ledashboard/jquery-ui-1.8.21.custom.css" -->
-		<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css">
-		
-		<!-- CSS includes -->
-		<link rel="stylesheet" href="style/css/screen.css" />
-
-	</head>
-
-	<body>
-	
 		<header>
 			<h1><img src="style/img/dashboard.png"> leDashboard</h1>
 			<div class="menu">
@@ -26,12 +11,6 @@
 		</header>
 
 		<section id="feeds"></section>
-
-
-
-		<footer>
-			<p>2012, <a href="http://campino2k.de">Christian Jung</a> | Fork me on <a href="http://github.com/campino2k/leDashboard">Github</a> | Dashboard Icon <a href="http://creativecommons.org/licenses/by/3.0/">CC-BY</a> from <a href="http://www.doublejdesign.co.uk/products-page/icons/super-mono-icons/">Double-J Design's "Super Mono" Iconset</a></p>
-		</footer>
 
 		<div id="new-feed-form" title="Add new feed" style="display:none;">
 			<p class="validateTips">All form fields are required.</p>
@@ -74,14 +53,5 @@
 		<div id="dialog-confirm" title="Really delete the feed?" style="display:none;">
 			<p><span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;"></span>This items will be permanently deleted and cannot be recovered. Are you sure?</p>
 		</div>
-	</body>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
-
-	<script src="js/notification.class.js"></script>
-	<script src="js/feed.class.js"></script>
-	<script src="js/form.feed_add.js"></script>
-	<script src="js/form.settings.js"></script>
-	<script src="js/ledashboard.js"></script>
-</html>
+<? include( 'inc/footer.php' ); ?>
