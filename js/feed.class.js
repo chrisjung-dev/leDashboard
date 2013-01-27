@@ -3,7 +3,7 @@
  */
 var feeds = {};
 
-var Feed = function( _id, _config ) {
+Feed = function( _id, _config ) {
 
 	// prepare for scope problems in methods
 	var _self = this;
@@ -33,15 +33,14 @@ var Feed = function( _id, _config ) {
 
 		if( $( '#' + _self.id ).length === 0 ) {
 			$( '#feeds' ).append(
-				tpl['feed.main']( {
-					id: _self.id,
-					url: url,
-					title: title
-				} )
+				$('<div/>', {
+					'id': _self.id,
+					'class': 'feed',
+					'html': '<h2><a href="' + url  + '" target="_blank">' + title + '</a></h2><div class="loading"></div>'
+				})
 			);
 		} else {
-				$( '#' + _self.id ).html( '<h2><a href="' + url  + '">' + title + '</a></h2><div class="loading"></div>' );
-
+			$( '#' + _self.id ).html( '<h2><a href="' + url  + '">' + title + '</a></h2><div class="loading"></div>' );
 		}
 
 		get_single_feed_content();
@@ -65,6 +64,7 @@ var Feed = function( _id, _config ) {
 				
 				// get the feed id from meta items
 				var $feed_id = json.meta.id;
+				
 				var $ul = $( '<ul/>' );
 				$( '#' + $feed_id + '>div:last' ).append( $ul );
 			
