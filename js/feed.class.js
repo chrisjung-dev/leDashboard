@@ -3,7 +3,7 @@
  */
 var feeds = {};
 
-Feed = function( _id, _config ) {
+var Feed = function( _id, _config ) {
 
 	// prepare for scope problems in methods
 	var _self = this;
@@ -33,14 +33,15 @@ Feed = function( _id, _config ) {
 
 		if( $( '#' + _self.id ).length === 0 ) {
 			$( '#feeds' ).append(
-				_self.templates.main( {
+				tpl['feed.main']( {
 					id: _self.id,
 					url: url,
 					title: title
 				} )
 			);
 		} else {
-			$( '#' + _self.id ).append( '<div class="loading"></div>' );
+				$( '#' + _self.id ).html( '<h2><a href="' + url  + '">' + title + '</a></h2><div class="loading"></div>' );
+
 		}
 
 		get_single_feed_content();
@@ -143,24 +144,4 @@ Feed = function( _id, _config ) {
 		console.log( 'clicked link' );
 		evt.stopPropagation();
 	};
-
-	this.templates = {
-		
-		/**
-		 *	feed template
-		 */
-
-		'main': _.template( '<div id="<%= id %>" class="feed"><h2><a href="<%= url %>" target="_blank"><%= title %></a></h2></div>' ),
-
-		/**
-		 *	feed item template
-		 */
-		'item': _.template(
-			'<ul><% _.each( items, function( item ){' +
-				'console.log( item )'+
-			'} ) %></ul>'
-		)
-	};
-
-
 };

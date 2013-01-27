@@ -81,6 +81,23 @@ module.exports = function(grunt) {
 			]
 
 		},
+
+		/**
+		 * compile templates
+		 */
+		jst: {
+			compile: {
+				options: {
+					namespace: "tpl",
+					processName: function( filename ) {
+						return filename.split( '/' ).pop().split( '.' ).slice( 0, -1 ).join( '.' );
+					}
+				},
+				files: {
+					"js/templates.js": ["js/templates/**/*.html"]
+				}
+			}
+		},
 		
 		/*
 			Watch less files
@@ -99,6 +116,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-jst');
 	grunt.loadNpmTasks('grunt-recess');
 
 	// Default task
