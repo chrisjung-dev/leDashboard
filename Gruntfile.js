@@ -67,7 +67,8 @@ module.exports = function(grunt) {
 					"$site_url": true,
 					"$feed_url": true,
 					"$site_title": true,
-					"$entries": true
+					"$entries": true,
+					_: false
 
 				}
 			},
