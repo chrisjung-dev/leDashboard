@@ -2,6 +2,14 @@
 
 An open source alternative for iGoogle
 
+===== Login =====
+
+  * Copy config/users.json-dist to config/users.json
+  * Add users with the scheme seen there. Password is generated
+    with SHA1
+
+Default login is admin:admin
+
 ===== Details =====
 
 More detailed information can be found at
