@@ -1,9 +1,15 @@
-$(function(){
+jQuery(function(){
+	
+	/**
+	 * Load content parts
+	 */
+	jQuery.get( 'show/feed_add.html', function(data){ jQuery( 'body' ).append( data )} );
+	jQuery.get( 'show/settings.html', function(data){ jQuery( 'body' ).append( data )} );
 
 	/**
 	 * Make Feeds sortable
 	 */
-	$('#feeds').sortable({
+	jQuery('#feeds').sortable({
 		handle: 'h2',
 		forcePlaceholderSize: true,
 		placeholder: 'feed placeholder',
@@ -17,7 +23,7 @@ $(function(){
 	/**
 	 * Load general settings
 	 */
-	var $get_settings = $.ajax({
+	var $get_settings = jQuery.ajax({
 		url: 'read_settings.php',
 		dataType: 'json',
 		async: false,
@@ -31,7 +37,7 @@ $(function(){
 	/**
 	 *	Load feed config from json
 	 */
-	var $get_feeds = $.getJSON( 'read_feed_config.php', function( json ) {
+	var $get_feeds = jQuery.getJSON( 'read_feed_config.php', function( json ) {
 		
 		$loaded_feeds = json;
 
@@ -46,17 +52,17 @@ $(function(){
 	/**
 	 *	Show / hide buttons when hovering the feed widgets
 	 */
-	//$( '.feed', '#feeds' ).hover(
-	$( '#feeds' ).on( 'mouseenter', '.feed',
+	//jQuery( '.feed', '#feeds' ).hover(
+	jQuery( '#feeds' ).on( 'mouseenter', '.feed',
 		function(){
-			var buttons = $('<span/>', {
+			var buttons = jQuery('<span/>', {
 				'class': 'buttons'
 			});
 
-			var reloadbutton = $( '<a/>', {
+			var reloadbutton = jQuery( '<a/>', {
 				'text': 'reload',
 				'click': function(){
-					feeds[ $(this).parents( '.feed' ).attr( 'id' ) ].reload_feed();
+					feeds[ jQuery(this).parents( '.feed' ).attr( 'id' ) ].reload_feed();
 				}
 			}).button({
 				icons: {
@@ -65,7 +71,7 @@ $(function(){
 				text: false
 			}).appendTo( buttons );
 			
-			var togglebutton = $( '<a/>', {
+			var togglebutton = jQuery( '<a/>', {
 				'text': 'mini/maxi'
 			}).button({
 				icons: {
@@ -74,24 +80,24 @@ $(function(){
 				text: false
 			}).appendTo( buttons );
 			
-			var deleteFeedButton = $('<a/>', {
+			var deleteFeedButton = jQuery('<a/>', {
 				'text': 'delete',
 				'click': function() {
-					var $this_id = $(this).parents( '.feed' ).attr( 'id' );
+					var $this_id = jQuery(this).parents( '.feed' ).attr( 'id' );
 
-					$( '#dialog-confirm' ).dialog({
+					jQuery( '#dialog-confirm' ).dialog({
 						resizable: false,
 						height:160,
 						modal: true,
 						buttons: {
 							'Delete items': function() {
 
-								$( '#' + $this_id ).remove();
+								jQuery( '#' + $this_id ).remove();
 								save_feed_config( get_active_feeds() );
-								$( this ).dialog( 'close' );
+								jQuery( this ).dialog( 'close' );
 							},
 							Cancel: function() {
-								$( this ).dialog( 'close' );
+								jQuery( this ).dialog( 'close' );
 							}
 						}
 					});
@@ -103,10 +109,10 @@ $(function(){
 				'text': false
 			}).appendTo( buttons );
 
-			var editButton = $( '<a/>', {
+			var editButton = jQuery( '<a/>', {
 				'text': 'edit',
 				'click': function() {
-					var $this_id =$(this).parents( '.feed' ).attr( 'id' );
+					var $this_id =jQuery(this).parents( '.feed' ).attr( 'id' );
 					var $this_item = $loaded_feeds[ $this_id ];
 
 					$id.val( $this_id );
@@ -115,7 +121,7 @@ $(function(){
 					$site_title.val( $this_item.title );
 					$entries.val( $this_item.entries );
 					
-					$( '#new-feed-form' ).dialog( 'option', 'title', 'Edit Feed Settings' );
+					jQuery( '#new-feed-form' ).dialog( 'option', 'title', 'Edit Feed Settings' );
 					open_add_feed_form();
 				}
 			}).button({
@@ -128,20 +134,20 @@ $(function(){
 			// make the buttons stick together
 			buttons.buttonset();
 		
-			$( this ).prepend( buttons );
+			jQuery( this ).prepend( buttons );
 		}
 	);
 
-	$( '#feeds' ).on( 'mouseleave', '.feed',
+	jQuery( '#feeds' ).on( 'mouseleave', '.feed',
 		function(){
-			$( this ).find( '.buttons' ).remove();
+			jQuery( this ).find( '.buttons' ).remove();
 		}
 	);
 
 	/**
 	 *	implement "reload all"
 	 */
-	$( 'header .reload_all' ).click( function() {
+	jQuery( 'header .reload_all' ).click( function() {
 		for( var feed in feeds ){
 			feeds[ feed ].reload_feed();
 		}
@@ -150,24 +156,24 @@ $(function(){
 	/**
 	 *	Make buttons
 	 */
-	$( 'header .reload_all' ).button({
+	jQuery( 'header .reload_all' ).button({
 		icons: {
 			primary: 'ui-icon-refresh'
 		}
 	});
 
-	$( 'header .add_feed' )
+	jQuery( 'header .add_feed' )
 		.button({
 			icons: {
 				primary: 'ui-icon-plusthick'
 			}
 		})
 		.click( function(){
-			$( '#new-feed-form' ).dialog( 'option', 'title', 'Add new feed' );
+			jQuery( '#new-feed-form' ).dialog( 'option', 'title', 'Add new feed' );
 			open_add_feed_form();
 		});
 
-	$( 'header .settings' )
+	jQuery( 'header .settings' )
 		.button({
 			icons: {
 				primary: 'ui-icon-wrench'
@@ -177,14 +183,14 @@ $(function(){
 			open_settings_form();
 		});
 
-	$( 'header .logout' )
+	jQuery( 'header .logout' )
 		.button({
 			icons: {
 				primary: 'ui-icon-power'
 			}
 		})
 		.click(function(){
-			$.ajax( 'logout.php' );
+			jQuery.ajax( 'logout.php' );
 			var location_array = location.href.split( '/' );
 			var del = location_array.pop();
 			location_array.push( 'logout.php' );
@@ -200,8 +206,8 @@ $(function(){
 var get_active_feeds = function(){
 	var $save_feeds = {};
 
-	$( '#feeds .feed' ).each(function(index) {
-		$save_feeds[ $( this ).attr( 'id' ) ] = $loaded_feeds[ $( this ).attr( 'id' ) ];
+	jQuery( '#feeds .feed' ).each(function(index) {
+		$save_feeds[ jQuery( this ).attr( 'id' ) ] = $loaded_feeds[ jQuery( this ).attr( 'id' ) ];
 	});
 
 	return $save_feeds;
@@ -212,7 +218,7 @@ var get_active_feeds = function(){
  */
 var save_feed_config = function( _feeds ) {
 
-	$.ajax({
+	jQuery.ajax({
 		url: 'save_feed_config.php',
 		type: 'POST',
 		dataType: 'json',
@@ -247,7 +253,7 @@ var save_feed_config = function( _feeds ) {
 };
 
 var save_settings = function( _settings ) {
-	$.ajax({
+	jQuery.ajax({
 		url: 'save_settings.php',
 		type: 'POST',
 		data: {
