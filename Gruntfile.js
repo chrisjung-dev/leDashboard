@@ -104,6 +104,9 @@ module.exports = function(grunt) {
 		 */
 		
 		copy: {
+			options: {
+				flatten: true
+			},
 			images: {
 				expand: true,
 				flatten: true,
@@ -115,6 +118,11 @@ module.exports = function(grunt) {
 					
 					 ],
 				dest: "dist/img/" 
+			},
+			jqueryui: {
+				
+				src: "src/style/css/flick",
+				dest: "dist/style/"
 			}
 		},
 		/*
