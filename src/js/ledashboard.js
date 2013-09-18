@@ -169,7 +169,8 @@ jQuery(function(){
 			}
 		})
 		.click( function(){
-			jQuery( '#new-feed-form' ).dialog( 'option', 'title', 'Add new feed' );
+			var dlg = jQuery( '#new-feed-form' ).dialog();
+			dlg.dialog( 'option', 'title', 'Add new feed' );
 			open_add_feed_form();
 		});
 
@@ -180,6 +181,7 @@ jQuery(function(){
 			}
 		})
 		.click( function(){
+			var dlg = jQuery( '#settings-form' ).dialog();
 			open_settings_form();
 		});
 
