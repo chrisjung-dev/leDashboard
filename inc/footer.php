@@ -6,11 +6,11 @@
 	<script src="//code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 
 	<script src="lib/underscore-min.js"></script>
-	<script src="js/templates.js"></script>
+	<script src="src/js/templates.js"></script>
 
-	<script src="js/notification.class.js"></script>
-	<script src="js/feed.class.js"></script>
-	<script src="js/form.feed_add.js"></script>
-	<script src="js/form.settings.js"></script>
-	<script src="js/ledashboard.js"></script>
+	<script src="src/js/notification.class.js"></script>
+	<script src="src/js/feed.class.js"></script>
+	<script src="src/js/form.feed_add.js"></script>
+	<script src="src/js/form.settings.js"></script>
+	<script src="src/js/ledashboard.js"></script>
 </html>

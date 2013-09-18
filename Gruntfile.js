@@ -6,10 +6,10 @@ module.exports = function(grunt) {
 		less: {
 			dev: {
 				options: {
-					paths: ["style/less"]
+					paths: ["src/style/less"]
 				},
 				files: {
-					"style/css/screen.css": "style/less/screen.less"
+					"dist/style/screen.css": "src/style/less/screen.less"
 				}
 			},
 			prod: {
@@ -19,14 +19,14 @@ module.exports = function(grunt) {
 
 				},
 				files: {
-					"style/css/screen.css": "style/less/screen.less"
+					"dist/style/screen.css": "src/style/less/screen.less"
 				}
 			}
 		},
 
 		recess: {
 			dev: {
-				src: [ 'style/less/screen.less' ],
+				src: [ 'src/style/less/screen.less' ],
 				options: {
 					noIDs: false,
 					noUnderscores: false,
@@ -73,11 +73,11 @@ module.exports = function(grunt) {
 				}
 			},
 			src: [
-				"js/notification.class.js"
-				, "js/feed.class.js"
-				, "js/form.feed_add.js"
-				, "form.settings.js"
-				, "js/ledashboard.js"
+				"src/js/notification.class.js"
+				, "src/js/feed.class.js"
+				, "src/js/form.feed_add.js"
+				, "src/form.settings.js"
+				, "src/js/ledashboard.js"
 			]
 
 		},
@@ -94,11 +94,29 @@ module.exports = function(grunt) {
 					}
 				},
 				files: {
-					"js/templates.js": ["js/templates/**/*.html"]
+					"dist/js/templates.js": ["src/js/templates/**/*.html"]
 				}
 			}
 		},
 		
+		/*
+		 * Copy Task
+		 */
+		
+		copy: {
+			images: {
+				expand: true,
+				flatten: true,
+				src: [ 
+					"src/style/img/*.jpg",  
+					"src/style/img/*.png", 
+					"src/style/img/*.ico",
+					"src/style/img/*.gif",
+					
+					 ],
+				dest: "dist/img/" 
+			}
+		},
 		/*
 			Watch less files
 		*/
@@ -106,7 +124,7 @@ module.exports = function(grunt) {
 			styles: {
 			// not using "less.prod.files" but ALL less files.
 				files: '**/*.less',
-				tasks: ['less:dev']
+				tasks: ['recess:dev', 'less:dev']
 			}
 		}
 	});
@@ -115,12 +133,13 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-jst');
 	grunt.loadNpmTasks('grunt-recess');
 
 	// Default task
-	grunt.registerTask('default', ['less:dev']);
+	grunt.registerTask('default', [ 'recess:dev', 'copy:images' ]);
 	//grunt.registerTask('production', ['less:prod', 'concat:prod']);
 
 };
