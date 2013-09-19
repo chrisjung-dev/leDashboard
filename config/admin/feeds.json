@@ -1,1 +1,66 @@
-{"heise":{"title":"heise.de","feedUrl":"http://www.heise.de/newsticker/heise-atom.xml","url":"http://heise.de","entries":"6"},"tagesschau":{"title":"tagesschau","feedUrl":"http://www.tagesschau.de/xml/rss2","url":"http://tagesschau.de","entries":"5"},"spiegel_de":{"title":"SPIEGEL online","url":"http://spiegel.de","feedUrl":"http://www.spiegel.de/schlagzeilen/index.rss","entries":5},"golem":{"title":"Golem.de","feedUrl":"http://golem.de.dynamic.feedsportal.com/pf/578068/http://rss.golem.de/rss.php?feed=RSS2.0","url":"http://golem.de","entries":"5"},"heise_developer":{"title":"heise developer","feedUrl":"http://www.heise.de/developer/rss/news-atom.xml","url":"http://heise.de/developer/","entries":"5"},"ubuntuusers_planet":{"title":"Ubuntuusers Planet","feedUrl":"http://planet.ubuntuusers.de/feeds/short/20/","url":"http://planet.ubuntuusers.de","entries":"7"},"campino2k":{"title":"campino2k.de","url":"http://campino2k.de","feedUrl":"http://campino2k.de/feed/","entries":7},"campino2k_wiki":{"title":"wiki.campino2k.de","feedUrl":"http://wiki.campino2k.de/feed.php","url":"http://wiki.campino2k.de","entries":"5"},"osbn":{"title":"OSBN","feedUrl":"http://osbn.de/feed.rss","url":"http://osbn.de","entries":"5"}}
+
+[
+    {
+        "id": "heise",
+        "title":"heise.de",
+        "feedUrl":"http://www.heise.de/newsticker/heise-atom.xml",
+        "url":"http://heise.de",
+        "entries":"6"
+    },
+    {
+	    "id": "tagesschau",
+        "title":"tagesschau",
+        "feedUrl":"http://www.tagesschau.de/xml/rss2",
+        "url":"http://tagesschau.de",
+        "entries":"5"
+    },
+    {
+	    "id": "spiegel_de",
+        "title":"SPIEGEL online",
+        "url":"http://spiegel.de",
+        "feedUrl":"http://www.spiegel.de/schlagzeilen/index.rss",
+        "entries":5
+    },
+    {
+	    "id": "golem",
+        "title":"Golem.de",
+        "feedUrl":"http://golem.de.dynamic.feedsportal.com/pf/578068/http://rss.golem.de/rss.php?feed=RSS2.0",
+        "url":"http://golem.de",
+        "entries":"5"
+    },
+    {
+    	"id": "heise_developer",
+        "title":"heise developer",
+        "feedUrl":"http://www.heise.de/developer/rss/news-atom.xml",
+        "url":"http://heise.de/developer/",
+        "entries":"5"
+    },
+    {
+	    "id": "ubuntuusers_planet",
+        "title":"Ubuntuusers Planet",
+        "feedUrl":"http://planet.ubuntuusers.de/feeds/short/20/",
+        "url":"http://planet.ubuntuusers.de",
+        "entries":"7"
+    },
+    {
+	    "id": "campino2k",
+        "title":"campino2k.de",
+        "url":"http://campino2k.de",
+        "feedUrl":"http://campino2k.de/feed/",
+        "entries":7
+    },
+    {
+ 		"id": "campino2k_wiki",
+        "title":"wiki.campino2k.de",
+        "feedUrl":"http://wiki.campino2k.de/feed.php",
+        "url":"http://wiki.campino2k.de",
+        "entries":"5"
+    },
+    {
+	    "id": "osbn",
+        "title":"OSBN",
+        "feedUrl":"http://osbn.de/feed.rss",
+        "url":"http://osbn.de",
+        "entries":"5"
+    }
+]
