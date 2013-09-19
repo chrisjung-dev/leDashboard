@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>leDashboard</title>
+		<link rel="shortcut icon" href="dist/img/favicon.ico">
+
+		<link rel="stylesheet" type="text/css" href="dist/style/css/flick/jquery-ui-1.10.3.custom.min.css">
+		
+		<!-- CSS includes -->
+		<link rel="stylesheet" href="dist/style/screen.css">
+		
+		<script src="lib/angular/angular.js"></script>
+		<script type="text/javascript">
+			
+			
+			var FeedController = function( $scope, $http ){
+				$http.get( 'read_feed_config.php' ).success(function( data ){
+					$scope.feeds = data;
+					
+					for( feed in data ){
+						//console.log( data[ feed ] )
+					}
+				});
+
+				$scope.reload = function(){
+					console.log( "reload: " + this.feed.feedUrl );
+				};
+				
+				$scope.load = function(){
+					$http.post( 'get_feed.php', {
+						"feed_id": this.feed.id,
+						"feed_url": this.feed.feedUrl
+					} ).success( function(data){
+						console.log( data );
+					});
+				};
+				
+				
+			};
+			
+			var FeedItemsController = function( $scope, $http ){
+				$http.get( 'get_feed.php', {
+						"feed_id": $scope.feed.id,
+						"feed_url": $scope.feed.feedUrl
+					} ).success( function(data){
+						console.log( data );
+				});
+			};
+			
+
+			
+		</script>
+
+	</head>
+
+	<body>
+
+		<header>
+			<h1><img src="dist/img/dashboard.png"> leDashboard</h1>
+			<div class="menu">
+				<button class="reload_all ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-refresh"></span><span class="ui-button-text">reload all</span></button>
+				<button class="add_feed ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-plusthick"></span><span class="ui-button-text">Add Feed</span></button>
+				<button class="settings ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-wrench"></span><span class="ui-button-text">Settings</span></button>
+				<button class="logout ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-power"></span><span class="ui-button-text">Logout The mighty Administrator</span></button>
+			</div>
+		</header>
+
+		<section id="feeds" ng-controller="FeedController">
+			
+			<div class="feed" id="{{feed.id}}" ng-repeat="feed in feeds">
+				<span class="buttons">
+					<button ng-click="reload()">reload</button>
+				</span>
+				<h2><a href="{{feed.url}}" target="_blank">{{feed.title}}</a></h2>
+				<div class="loading">
+					<ul ng-controller="FeedItemsController">
+						
+					</ul>
+				</div>
+			</div>
+			
+		</section>
+		
+		
+		<footer>
+			<p>2012, <a href="http://campino2k.de/">Christian Jung</a> | Fork me on <a href="http://github.com/campino2k/leDashboard">Github</a> | Dashboard Icon <a href="http://creativecommons.org/licenses/by/3.0/">CC-BY</a> from <a href="http://www.doublejdesign.co.uk/products-page/icons/super-mono-icons/">Double-J Design's "Super Mono" Iconset</a></p>
+		</footer>
+
+   
+
+	</body>
+</html>
