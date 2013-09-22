@@ -64,8 +64,16 @@
 					$scope.feeditems = data.data;
 				});
 				
-				var toggle = function(){
-					console.log( 'toggleItem' );
+				$scope.item.isOpen = false;
+				$scope.toggle = function(){
+					
+					this.item.isOpen = this.item.isOpen ? false : true;
+					return this.item.isOpen;
+				};
+				
+				$scope.display = function(){
+					console.log( this.item.isOpen );
+					return this.item.isOpen ? " open " : " "; 
 				};
 			};
 			
@@ -96,10 +104,19 @@
 				<h2><a href="{{feed.url}}" target="_blank">{{feed.title}}</a></h2>
 				<div class="loading">
 					<ul ng-controller="FeedItemsController">
-						<li ng-repeat="item in feeditems">
-							<i ng-click="toggle"></i>
+						<li ng-repeat="item in feeditems" ng-switch on="toggle">
+					
+							
+							<i ng-click="toggle()"></i>
 							<a href="{{item.permalink}}">{{item.title}}</a>
 							<p>{{item.description}}</p>
+							
+							<div ng-switch-when="true">open
+							
+							</div>
+							<div ng-switch-default>close
+							
+							</div>
 						</li>
 					</ul>
 				</div>
