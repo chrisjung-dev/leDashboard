@@ -40,7 +40,6 @@
 					text-decoration: underline;
 				}
 			}
-
 		}
 
 		&.ui-sortable-helper {
@@ -131,9 +130,13 @@
 						color: @linkHoverColor;
 					}
 				}
+      
+        p {
+          display: none;
+        }
 
-				&.open {
-					
+				&.open p {
+					display: block;
 				}
 
 			}
