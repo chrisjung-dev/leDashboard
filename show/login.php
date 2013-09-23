@@ -2,7 +2,7 @@
 	
 	<form id="login" method="POST" action="index.php">
 
-	<h1><img src="style/img/dashboard.png"> leDashboard</h1>
+	<h1><img src="dist/img/dashboard.png"> leDashboard</h1>
 
 	<fieldset>
 
