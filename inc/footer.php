@@ -6,8 +6,7 @@
 	<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
 	<script src="lib/underscore/underscore-min.js"></script>
-	<script src="src/js/templates.js"></script>
-
+	
 	<script src="src/js/notification.class.js"></script>
 	<script src="src/js/feed.class.js"></script>
 	<script src="src/js/form.feed_add.js"></script>
