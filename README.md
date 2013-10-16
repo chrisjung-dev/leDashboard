@@ -23,6 +23,11 @@ More detailed information can be found at
 
   * http://wiki.campino2k.de/programmierung/ledashboard (german)
   * http://wiki.campino2k.de/en/programmierung/ledashboard (english)
+  
+## Contributors
+
+  * Christian Jung <campino2k@gmail.com>
+  * Sergio Oller <sergioller@gmail.com>
 
 ## LICENCE
 
