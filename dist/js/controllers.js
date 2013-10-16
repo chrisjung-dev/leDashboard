@@ -1,9 +1,12 @@
-var FeedController = function( $scope, $http ){
+var leDashboard = angular.module('leDashboard', []);
+
+
+var FeedController = function ( $scope, $http ){
 	$http.get( 'read_feed_config.php' ).success(function( data ){
 		$scope.feeds = data;
 		
 		for( feed in data ){
-			console.log( data[ feed ] )
+			console.log( data[ feed ] );
 		}
 	});
 
@@ -19,10 +22,10 @@ var FeedController = function( $scope, $http ){
 			console.log( data );
 		});
 	};
-	
-	
 };
-var FeedItemsController = function( $scope, $http ){
+var leDashboard = angular.module('leDashboard', []);
+
+var FeedItemsController = function ( $scope, $http ){
 	// default vars
 	$scope.isOpen = false;
 	
@@ -51,8 +54,6 @@ var FeedItemsController = function( $scope, $http ){
 		
 	});
 	
-	
-	// controller functions
 	$scope.toggle = function(){
 		$scope.isOpen = $scope.isOpen ? false : true;
 	};
@@ -61,4 +62,5 @@ var FeedItemsController = function( $scope, $http ){
 		//console.log( this.item.isOpen );
 		return $scope.isOpen ? " open " : " close "; 
 	};
+	
 };

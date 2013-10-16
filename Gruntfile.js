@@ -111,6 +111,10 @@ module.exports = function(grunt) {
 			controllers: {
 				src: [ 'src/js/controllers/*.js' ],
 				dest:'dist/js/controllers.js' 
+			},
+			appjs: {
+				src: [ 'src/js/app.js', 'src/js/app.*.js' ],
+				dest: 'dist/js/app.js'
 			}
 		},
 		
