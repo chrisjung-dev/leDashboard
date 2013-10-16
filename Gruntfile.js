@@ -3,6 +3,7 @@ module.exports = function(grunt) {
 
 	// Initialisiert Grunt mit den folgenden Projekteinstellungen
 	grunt.initConfig({
+		
 		less: {
 			dev: {
 				options: {
@@ -81,23 +82,6 @@ module.exports = function(grunt) {
 			]
 
 		},
-
-		/**
-		 * compile templates
-		 */
-		jst: {
-			compile: {
-				options: {
-					namespace: "tpl",
-					processName: function( filename ) {
-						return filename.split( '/' ).pop().split( '.' ).slice( 0, -1 ).join( '.' );
-					}
-				},
-				files: {
-					"dist/js/templates.js": ["src/js/templates/**/*.html"]
-				}
-			}
-		},
 		
 		/*
 		 * Copy Task
@@ -122,14 +106,27 @@ module.exports = function(grunt) {
 				dest: "dist/style/css/"
 			}
 		},
+		
+		concat: {
+			controllers: {
+				src: [ 'src/js/controllers/*.js' ],
+				dest:'dist/js/controllers.js' 
+			}
+		},
+		
+		
 		/*
-			Watch less files
+			Watch files
 		*/
 		watch: {
 			styles: {
 			// not using "less.prod.files" but ALL less files.
 				files: '**/*.less',
 				tasks: ['recess:dev', 'less:dev']
+			},
+			mvc: {
+				files: 'src/js/controllers/*.js',
+				tasks: [ 'concat:controllers' ]
 			}
 		}
 	});
@@ -144,7 +141,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-recess');
 
 	// Default task
-	grunt.registerTask('default', [ 'recess:dev', 'copy:images' ]);
+	grunt.registerTask('default', [ 'recess:dev', 'less:dev', 'copy' ]);
 	//grunt.registerTask('production', ['less:prod', 'concat:prod']);
 
 };

@@ -13,78 +13,9 @@
 		
 		<script src="lib/jquery/jquery-2.0.3.js"></script>
 		<script src="lib/angular/angular.js"></script>
+		<script src="dist/js/controllers.js"></script>
 		<script src="lib/underscore/underscore-min.js"></script>
-		<script type="text/javascript">
-			
-			
-			var FeedController = function( $scope, $http ){
-				$http.get( 'read_feed_config.php' ).success(function( data ){
-					$scope.feeds = data;
-					
-					for( feed in data ){
-						//console.log( data[ feed ] )
-					}
-				});
 
-				$scope.reload = function(){
-					console.log( "reload: " + this.feed.feedUrl );
-				};
-				
-				$scope.load = function(){
-					$http.post( 'get_feed.php', {
-						"feed_id": this.feed.id,
-						"feed_url": this.feed.feedUrl
-					} ).success( function(data){
-						console.log( data );
-					});
-				};
-				
-				
-			};
-			
-			var FeedItemsController = function( $scope, $http ){
-				// default vars
-				$scope.isOpen = false;
-				
-				// load items per feed
-				$http.post( 'get_feed.php', 
-					{
-						"feed_id": $scope.feed.id,
-						"feed_url": $scope.feed.feedUrl
-					},
-					{
-						/*
-						 *	HINT from http://stackoverflow.com/questions/11442632/how-can-i-make-angular-js-post-data-as-form-data-instead-of-a-request-payload 
-						 */
-						headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-						transformRequest: function(obj) {
-							var str = [];
-							for(var p in obj)
-							str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-							return str.join("&");
-						},
-					}
-				).success( function(data){
-					$( '#' + $scope.feed.id + ' .loading' ).removeClass( 'loading' );
-					$scope.feeditems = data.data;
-					
-				});
-				
-				
-				// controller functions
-				$scope.toggle = function(){
-					$scope.isOpen = $scope.isOpen ? false : true;
-				};
-				
-				$scope.display = function(){
-					//console.log( this.item.isOpen );
-					return $scope.isOpen ? " open " : " close "; 
-				};
-			};
-			
-
-			
-		</script>
 
 	</head>
 
@@ -122,12 +53,9 @@
 			
 		</section>
 		
-		
 		<footer>
 			<p>2012, <a href="http://campino2k.de/">Christian Jung</a> | Fork me on <a href="http://github.com/campino2k/leDashboard">Github</a> | Dashboard Icon <a href="http://creativecommons.org/licenses/by/3.0/">CC-BY</a> from <a href="http://www.doublejdesign.co.uk/products-page/icons/super-mono-icons/">Double-J Design's "Super Mono" Iconset</a></p>
 		</footer>
-
    
-
 	</body>
 </html>
