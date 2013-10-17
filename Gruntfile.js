@@ -128,7 +128,11 @@ module.exports = function(grunt) {
 				files: '**/*.less',
 				tasks: ['recess:dev', 'less:dev']
 			},
-			mvc: {
+			app: {
+				files: [ 'src/js/app.js', 'src/js/app*.js' ],
+				tasks: [ 'concat:appjs' ]
+			},
+			controllers: {
 				files: 'src/js/controllers/*.js',
 				tasks: [ 'concat:controllers' ]
 			}

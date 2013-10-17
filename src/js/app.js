@@ -1,5 +1,8 @@
 var leDashboard = angular.module('leDashboard', [
-  'ngRoute'
+  'ngRoute',
+  
+  'FeedController',
+  'FeedItemsController'
 ]);
 
 
@@ -7,8 +10,8 @@ leDashboard.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/login', {
-        templateUrl: 'partials/phone-list.html',
-        controller: 'FeedController'
+        templateUrl: 'show/login.php',
+        controller: 'LoginController'
       }).
       otherwise({
         redirectTo: '/feeds'

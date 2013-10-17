@@ -1,5 +1,8 @@
-var leDashboard = angular.module('leDashboard', []);
-
+/**
+ * Feed.js
+ * @author Christian Jung <campino2k@gmail.com>
+ * @since 2013-10-17 21:52 
+ */
 
 //leDashboard.controller(  'FeedController', 
 function FeedController ( $scope, $http ){
