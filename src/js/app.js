@@ -7,13 +7,14 @@ var leDashboard = angular.module('leDashboard', [
 
 
 leDashboard.config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/login', {
-        templateUrl: 'show/login.php',
-        controller: 'LoginController'
-      }).
-      otherwise({
-        redirectTo: '/feeds'
-      });
-  }]);
+	function($routeProvider) {
+		$routeProvider.
+			when('/login', {
+				templateUrl: 'show/login.php',
+				controller: 'LoginController'
+			}).
+			otherwise({
+				redirectTo: '/feeds'
+			});
+	}
+]);
