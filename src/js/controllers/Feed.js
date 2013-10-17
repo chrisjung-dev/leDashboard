@@ -1,7 +1,7 @@
 var leDashboard = angular.module('leDashboard', []);
 
 
-var FeedController = function ( $scope, $http ){
+leDashboard.controller(  'FeedController', function FeedController ( $scope, $http ){
 	$http.get( 'read_feed_config.php' ).success(function( data ){
 		$scope.feeds = data;
 		
@@ -22,4 +22,4 @@ var FeedController = function ( $scope, $http ){
 			console.log( data );
 		});
 	};
-};
+});

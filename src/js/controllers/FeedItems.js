@@ -1,6 +1,6 @@
 var leDashboard = angular.module('leDashboard', []);
 
-var FeedItemsController = function ( $scope, $http ){
+leDashboard.controller( 'FeedItemsController' = function FeedItemsController ( $scope, $http ){
 	// default vars
 	$scope.isOpen = false;
 	
@@ -38,4 +38,4 @@ var FeedItemsController = function ( $scope, $http ){
 		return $scope.isOpen ? " open " : " close "; 
 	};
 	
-};
+});
