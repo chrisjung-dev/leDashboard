@@ -46,9 +46,9 @@
 					<ul ng-controller="FeedItemsController">
 						<li ng-repeat="item in feeditems" ng-class="display">
 					
-							<i ng-click="toggle();"></i>
+							<i ng-click="toggle( item );"></i>
 							<a href="{{item.permalink}}">{{item.title}}</a>
-							<p>{{item.description}}</p>
+							<p ng-show="item.isOpen" >{{item.description}}</p>
 							
 						</li>
 					</ul>

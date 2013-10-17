@@ -1,13 +1,16 @@
 var leDashboard = angular.module('leDashboard', []);
 
 
-leDashboard.controller(  'FeedController', function FeedController ( $scope, $http ){
+//leDashboard.controller(  'FeedController', 
+function FeedController ( $scope, $http ){
 	$http.get( 'read_feed_config.php' ).success(function( data ){
 		$scope.feeds = data;
 		
+		/*
 		for( feed in data ){
 			console.log( data[ feed ] );
 		}
+		*/
 	});
 
 	$scope.reload = function(){
@@ -22,4 +25,5 @@ leDashboard.controller(  'FeedController', function FeedController ( $scope, $ht
 			console.log( data );
 		});
 	};
-});
+}
+//);
