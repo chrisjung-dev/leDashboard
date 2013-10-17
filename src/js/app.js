@@ -1,3 +1,8 @@
+/**
+ * src/js/app.js
+ * @author Christian Jung <campino2k@gmail.com>
+ * @since 2013-10-17 22:26
+ */
 var leDashboard = angular.module('leDashboard', [
   'ngRoute',
   
