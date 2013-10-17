@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>leDashboard</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="dist/img/favicon.ico" />
 
 		<link rel="stylesheet" type="text/css" href="dist/style/css/flick/jquery-ui-1.10.3.custom.css">
