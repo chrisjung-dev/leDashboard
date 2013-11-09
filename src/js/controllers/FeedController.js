@@ -30,8 +30,11 @@ function FeedController ( $scope, $http ){
 	).success( function(data){
 		$( '#' + $scope.feed.id + ' .loading' ).removeClass( 'loading' );
 		// load only max entries into the feed
-		//$scope.feeditems = data.data.splice( 0, $scope.feed.entries );
-		$scope.feeditems = data.data
+        if( data.data ) {
+            $scope.feeditems = data.data.splice( 0, $scope.feed.entries );
+        } else {
+            // TODO error handling
+        }
 
 	});
 	
@@ -42,8 +45,8 @@ function FeedController ( $scope, $http ){
 		//$scope.isOpen = $scope.isOpen ? false : true;
 	};
 	
-	$scope.display = function(){
-		//return $scope.isOpen ? " open " : " close "; 
+	$scope.display = function( item ){
+		return $scope.isOpen ? " open " : " close ";
 	};
 	
 }
