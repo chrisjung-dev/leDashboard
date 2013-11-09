@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="dist/style/screen.css">
 		
 		<!-- Load Libraries -->
-		<script src="lib/jquery/jquery-2.0.3.js"></script>
+		<script src="lib/jquery/jquery-2.0.3.min.js"></script>
 		<script src="lib/angular/angular.min.js"></script>
 		<script src="lib/angular-route/angular-route.min.js"></script>
 		<script src="lib/underscore/underscore-min.js"></script>
@@ -36,15 +36,15 @@
 			</div>
 		</header>
 
-		<section id="feeds" ng-controller="FeedController">
+		<section id="feeds" ng-controller="FeedListController">
 			
-			<div class="feed" id="{{feed.id}}" ng-repeat="feed in feeds">
+			<div class="feed" id="{{feed.id}}" ng-repeat="feed in feeds track by $index">
 				<span class="buttons">
 					<button ng-click="reload()">reload</button>
 				</span>
 				<h2><a href="{{feed.url}}" target="_blank">{{feed.title}}</a></h2>
 				<div class="loading">
-					<ul ng-controller="FeedItemsController">
+					<ul ng-controller="FeedController">
 						<li ng-repeat="item in feeditems" ng-class="display">
 					
 							<i ng-click="toggle( item );"></i>

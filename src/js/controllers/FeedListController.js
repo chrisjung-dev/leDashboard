@@ -1,11 +1,11 @@
 /**
- * src/js/controllers/Feed.js
+ * src/js/controllers/FeedListController.js
  * @author Christian Jung <campino2k@gmail.com>
  * @since 2013-10-17 21:52 
  */
 
 //leDashboard.controller(  'FeedController', 
-function FeedController ( $scope, $http ){
+function FeedListController ( $scope, $http ){
 	$http.get( 'read_feed_config.php' ).success(function( data ){
 		$scope.feeds = data;
 		

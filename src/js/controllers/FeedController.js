@@ -1,11 +1,11 @@
 /**
- * src/js/controllers/FeedItems.js
+ * src/js/controllers/FeedController.js
  * @author Christian Jung <campino2k@gmail.com>
  * @since 2013-10-17 21:52 
  */
 
 //leDashboard.controller( 'FeedItemsController' = 
-function FeedItemsController ( $scope, $http ){
+function FeedController ( $scope, $http ){
 	// default vars
 	$scope.isOpen = false;
 	
@@ -30,8 +30,9 @@ function FeedItemsController ( $scope, $http ){
 	).success( function(data){
 		$( '#' + $scope.feed.id + ' .loading' ).removeClass( 'loading' );
 		// load only max entries into the feed
-		$scope.feeditems = data.data.splice( 0, $scope.feed.entries );
-		
+		//$scope.feeditems = data.data.splice( 0, $scope.feed.entries );
+		$scope.feeditems = data.data
+
 	});
 	
 	$scope.toggle = function( item ){

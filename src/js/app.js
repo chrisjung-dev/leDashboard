@@ -6,11 +6,12 @@
 var leDashboard = angular.module('leDashboard', [
   'ngRoute',
   
-  'FeedController',
-  'FeedItemsController'
+  'FeedListController',
+  'FeedController'
 ]);
 
-
+/*
+TODO: Enable Routing
 leDashboard.config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider.
@@ -22,4 +23,4 @@ leDashboard.config(['$routeProvider',
 				redirectTo: '/feeds'
 			});
 	}
-]);
+]);*/

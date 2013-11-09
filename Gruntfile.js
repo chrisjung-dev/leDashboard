@@ -110,7 +110,7 @@ module.exports = function(grunt) {
 		concat: {
 			controllers: {
 				src: [ 'src/js/controllers/*.js' ],
-				dest:'dist/js/controllers.js' 
+				dest: 'dist/js/controllers.js'
 			},
 			appjs: {
 				src: [ 'src/js/app.js', 'src/js/app.*.js' ],
@@ -123,6 +123,9 @@ module.exports = function(grunt) {
 			Watch files
 		*/
 		watch: {
+            options: {
+              livereload: true,
+            },
 			styles: {
 			// not using "less.prod.files" but ALL less files.
 				files: '**/*.less',
@@ -145,7 +148,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-jst');
 	grunt.loadNpmTasks('grunt-recess');
 
 	// Default task
