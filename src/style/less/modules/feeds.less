@@ -20,18 +20,18 @@
 		box-shadow: 0 0 1px lighten( @textColor, 30% ), 0 0 0.5em lighten( @textColor, 40% );
 
 		h2 {
-		
+
 			padding: 0.5em 1em;
 			margin: 0;
 
 			font-size: 0.9em;
-			
+
       color: @white;
 			cursor: move;
 
 			background: @lightAccent;
 			border-bottom: 1px solid lighten( @textColor, 40% );
-			
+
 			a {
 				color: @white;
 				text-decoration: none;
@@ -65,8 +65,12 @@
 			&.loading {
 				min-height: 5em;
 
-				background: transparent url("../../dist/img/loading.gif") no-repeat center center;
-			}
+
+              background: transparent url("../../dist/img/loading.gif") no-repeat center center;
+              & > ul{
+                opacity: 0.5;
+              }
+            }
 		}
 
 		/**
@@ -79,7 +83,7 @@
 			list-style-type: none;
 
 			li {
-				
+
 				position: relative;
 
 				padding: 0.2em 0 0.2em 12px;
@@ -95,7 +99,7 @@
 
 					width: 0;
 					height: 0;
-					
+
 					border-color: transparent transparent transparent @lightAccent;
 					border-style: solid;
 					border-width: 5px 0 5px 8.7px;
@@ -125,12 +129,12 @@
 
 					color: @linkColor;
 					//display: block;
-					
+
 					&:hover {
 						color: @linkHoverColor;
 					}
 				}
-      
+
         p {
           //display: none;
         }
@@ -149,7 +153,7 @@
 			position: absolute;
 			top: 0.3em;
 			right: 0.3em;
-			
+
 			font-size: 0.6em;
 		}
 	}
