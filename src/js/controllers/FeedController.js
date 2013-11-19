@@ -4,20 +4,17 @@
  * @since 2013-10-17 21:52 
  */
 
-//leDashboard.controller( 'FeedItemsController' = 
 function FeedController ( $scope, $http, $log, $element ){
 	// default vars
 	$scope.isOpen = false;
-	
+
 	// load items per feed
-	$http.post( 'get_feed.php', 
-		{
+	$http.post( 'get_feed.php', {
 			"feed_id": $scope.feed.id,
 			"feed_url": $scope.feed.feedUrl
-		},
-		{
+		}, {
 			/*
-			 *	HINT from http://stackoverflow.com/questions/11442632/how-can-i-make-angular-js-post-data-as-form-data-instead-of-a-request-payload 
+			 HINT from http://stackoverflow.com/questions/11442632/how-can-i-make-angular-js-post-data-as-form-data-instead-of-a-request-payload
 			 */
 			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 			transformRequest: function(obj) {
@@ -25,10 +22,11 @@ function FeedController ( $scope, $http, $log, $element ){
 				for(var p in obj)
 				str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
 				return str.join("&");
-			},
+			}
 		}
 	).success( function(data){
-		$element.parent().removeClass( 'loading' );
+		// use the div, since jqLites .find does only support tag names as selectors
+		$element.find('div' ).removeClass( 'loading' );
 		// load only max entries into the feed
         if( data.data ) {
             $scope.feeditems = data.data.splice( 0, $scope.feed.entries );
@@ -50,4 +48,3 @@ function FeedController ( $scope, $http, $log, $element ){
 	};
 	
 }
-//);

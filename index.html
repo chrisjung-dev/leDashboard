@@ -20,6 +20,7 @@
 		<!-- Load leDashboard -->
 		<script src="dist/js/app.js"></script>
 		<script src="dist/js/controllers.js"></script>
+        <script src="src/js/services/services.js"></script>
 
 
 	</head>
@@ -38,13 +39,13 @@
 
 		<section id="feeds" ng-controller="FeedListController">
 			
-			<div class="feed" id="{{feed.id}}" ng-repeat="feed in feeds track by $index">
+			<div class="feed" id="{{feed.id}}" ng-repeat="feed in feeds track by $index"  ng-controller="FeedController">
 				<span class="buttons">
 					<button ng-click="reload()">reload</button>
 				</span>
 				<h2><a href="{{feed.url}}" target="_blank">{{feed.title}}</a></h2>
 				<div class="loading">
-					<ul ng-controller="FeedController">
+					<ul>
 						<li ng-repeat="item in feeditems" ng-class="display">
 					
 							<i ng-click="toggle( item );"></i>
