@@ -5,7 +5,7 @@
  */
 
 //leDashboard.controller( 'FeedItemsController' = 
-function FeedController ( $scope, $http ){
+function FeedController ( $scope, $http, $log, $element ){
 	// default vars
 	$scope.isOpen = false;
 	
@@ -28,7 +28,7 @@ function FeedController ( $scope, $http ){
 			},
 		}
 	).success( function(data){
-		$( '#' + $scope.feed.id + ' .loading' ).removeClass( 'loading' );
+		$element.parent().removeClass( 'loading' );
 		// load only max entries into the feed
         if( data.data ) {
             $scope.feeditems = data.data.splice( 0, $scope.feed.entries );

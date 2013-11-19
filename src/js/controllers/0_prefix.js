@@ -5,4 +5,6 @@
  */
 
 
-var leDashboard = angular.module('leDashboard', []);
+var leDashboardControllers = angular.module('leDashboardControllers', [])
+    .controller( "FeedListController", FeedListController )
+    .controller( "FeedController", FeedController);

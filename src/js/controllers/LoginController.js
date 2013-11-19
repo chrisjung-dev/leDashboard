@@ -4,8 +4,7 @@
  * @since 2013-10-17 22:15 
  */
 
-//leDashboard.controller(  'LoginController', 
-function LoginnController ( $scope, $http ){
+function LoginController ( $scope, $http ){
 	
 }
 //);
