@@ -5,8 +5,7 @@
  */
 var leDashboard = angular.module( 'leDashboard', [
 		'ngRoute',
-		'leDashboardControllers',
-		'leDashboardServices'
+		'leDashboardControllers'
 	] )
 	.run( function ( $log ){
 		$log.log( 'leDashboard läuft...' );
