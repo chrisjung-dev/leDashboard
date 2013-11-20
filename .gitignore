@@ -2,4 +2,4 @@ config
 cache
 node_modules
 dist/
-.idea/workspace.xml
+.idea/

@@ -1,7 +1,7 @@
 {
   "name": "leDashboard",
   "author": "Chris Jung <campino2k@gmail.com>",
-  "version": "0.1.0-beta",
+  "version": "0.0.6",
   "description": "An open source alternative for iGoogle",
   "licence": "GPLv2",
   "devDependencies": {
