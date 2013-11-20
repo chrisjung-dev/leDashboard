@@ -121,7 +121,8 @@ jQuery(function(){
 					$site_title.val( $this_item.title );
 					$entries.val( $this_item.entries );
 					
-					jQuery( '#new-feed-form' ).dialog( 'option', 'title', 'Edit Feed Settings' );
+					var $new_feed_form = jQuery( '#new-feed-form' ).dialog();
+					$new_feed_form.dialog( 'option', 'title', 'Edit Feed Settings' );
 					open_add_feed_form();
 				}
 			}).button({
