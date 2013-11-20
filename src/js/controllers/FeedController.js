@@ -6,8 +6,6 @@
 
 function FeedController ( $scope, $http, $log, $element ){
 	// default vars
-	$scope.isOpen = false;
-
 	$scope.loadItems = function(){
 		// load items per feed
 		$element.find('div' ).addClass( 'loading' );
@@ -40,7 +38,6 @@ function FeedController ( $scope, $http, $log, $element ){
 	}
 
 	$scope.reload = function(){
-		$log.log( 'reload' );
 		$scope.loadItems();
 	}
 
