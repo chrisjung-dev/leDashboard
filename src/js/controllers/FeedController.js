@@ -6,6 +6,8 @@
 
 function FeedController ( $scope, $http, $log, $element ){
 	// default vars
+	$scope.edit_mode = false;
+
 	$scope.loadItems = function(){
 		// load items per feed
 		$element.find('div' ).addClass( 'loading' );
@@ -40,8 +42,14 @@ function FeedController ( $scope, $http, $log, $element ){
 	$scope.reload = function(){
 		$scope.loadItems();
 	}
+	$scope.edit = function(){
+		$scope.edit_mode = $scope.edit_mode ? false : true;
+	}
+	$scope.save = function(){
+		$scope.edit_mode = $scope.edit_mode ? false : true;
+		$scope.reload();
+	}
 
-	
 	$scope.toggle = function( item ){
 		console.log( item )
 		item.isOpen = item.isOpen ? false : true;

@@ -17,7 +17,7 @@
 
 		background: @white;
 
-		box-shadow: 0 0 1px lighten( @textColor, 30% ), 0 0 0.5em lighten( @textColor, 40% );
+		box-shadow: 0 0 1px lighten(@textColor, 30%), 0 0 0.5em lighten(@textColor, 40%);
 
 		h2 {
 
@@ -26,11 +26,11 @@
 
 			font-size: 0.9em;
 
-      color: @white;
+			color: @white;
 			cursor: move;
 
 			background: @lightAccent;
-			border-bottom: 1px solid lighten( @textColor, 40% );
+			border-bottom: 1px solid lighten(@textColor, 40%);
 
 			a {
 				color: @white;
@@ -57,98 +57,9 @@
 			background: @white url("../../img/drop_arrow.png") no-repeat center center;
 			box-shadow: inset 0 0 1em @lightAccent;
 		}
-
-		div {
-			padding: 1em;
-
-
-			&.loading {
-				min-height: 5em;
-
-
-              background: transparent url("../../dist/img/loading.gif") no-repeat center center;
-              & > ul{
-                opacity: 0.5;
-              }
-            }
-		}
-
 		/**
-		 *	Feed Items
-		 */
-		ul {
-
-			padding: 0;
-			margin: 0;
-			list-style-type: none;
-
-			li {
-
-				position: relative;
-
-				padding: 0.2em 0 0.2em 12px;
-
-				font-size: 0.8em;
-				text-overflow: ellipse;
-
-
-				i {
-					position: absolute;
-					top: 0.5em;
-					left: 0;
-
-					width: 0;
-					height: 0;
-
-					border-color: transparent transparent transparent @lightAccent;
-					border-style: solid;
-					border-width: 5px 0 5px 8.7px;
-
-					content: "";
-
-					-webkit-transition-duration: 0.2s;
-					   -moz-transition-duration: 0.2s;
-					     -o-transition-duration: 0.2s;
-					        transition-duration: 0.2s;
-
-					-webkit-transition-property: all;
-					   -moz-transition-property: all;
-					     -o-transition-property: all;
-					        transition-property: all;
-
-				}
-				//&.opened:before {
-				&.opened i {
-					-webkit-transform: rotate(90deg);
-					   -moz-transform: rotate(90deg);
-					     -o-transform: rotate(90deg);
-					        transform: rotate(90deg);
-				}
-
-				a {
-
-					color: @linkColor;
-					//display: block;
-
-					&:hover {
-						color: @linkHoverColor;
-					}
-				}
-
-        p {
-          //display: none;
-        }
-
-				&.open p {
-					display: block;
-				}
-
-			}
-		}
-
-		/**
-		 *	reload, toggle-button
-		 */
+		   *	reload, toggle-button
+		   */
 		.buttons {
 			position: absolute;
 			top: 0.3em;
@@ -156,15 +67,106 @@
 
 			font-size: 0.6em;
 		}
+		.show {
+
+			div {
+				padding: 1em;
+
+				&.loading {
+					min-height: 5em;
+
+					background: transparent url("../../dist/img/loading.gif") no-repeat center center;
+					& > ul {
+						opacity: 0.5;
+					}
+				}
+			}
+
+			/**
+			   *	Feed Items
+			   */
+			ul {
+
+				padding: 0;
+				margin: 0;
+				list-style-type: none;
+
+				li {
+
+					position: relative;
+
+					padding: 0.2em 0 0.2em 12px;
+
+					font-size: 0.8em;
+					text-overflow: ellipse;
+
+					i {
+						position: absolute;
+						top: 0.5em;
+						left: 0;
+
+						width: 0;
+						height: 0;
+
+						border-color: transparent transparent transparent @lightAccent;
+						border-style: solid;
+						border-width: 5px 0 5px 8.7px;
+
+						content: "";
+
+						-webkit-transition-duration: 0.2s;
+						-moz-transition-duration: 0.2s;
+						-o-transition-duration: 0.2s;
+						transition-duration: 0.2s;
+
+						-webkit-transition-property: all;
+						-moz-transition-property: all;
+						-o-transition-property: all;
+						transition-property: all;
+
+					}
+					//&.opened:before {
+					&.opened i {
+						-webkit-transform: rotate(90deg);
+						-moz-transform: rotate(90deg);
+						-o-transform: rotate(90deg);
+						transform: rotate(90deg);
+					}
+
+					a {
+
+						color: @linkColor;
+						//display: block;
+
+						&:hover {
+							color: @linkHoverColor;
+						}
+					}
+
+					p {
+						//display: none;
+					}
+
+					&.open p {
+						display: block;
+					}
+
+				}
+			}
+
+		}
+	}
+	.edit {
+
 	}
 
 	&.col2 .feed {
-			width: 48%;
+		width: 48%;
 	}
 	&.col4 .feed {
-			width: 23%;
+		width: 23%;
 	}
 	&.col5 .feed {
-			width: 18%;
+		width: 18%;
 	}
 }
