@@ -1,65 +1,101 @@
 <!DOCTYPE html>
 <html ng-app="leDashboard">
-	<head>
-		<meta charset="utf-8">
-		<title>leDashboard</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="shortcut icon" href="dist/img/favicon.ico">
+<head>
+    <meta charset="utf-8">
+    <title>leDashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="dist/img/favicon.ico">
 
-		<!-- <link rel="stylesheet" type="text/css" href="dist/style/css/flick/jquery-ui-1.10.3.custom.min.css"> -->
-		
-		<!-- CSS includes -->
-		<link rel="stylesheet" href="dist/style/screen.css">
-		
-		<!-- Load Libraries -->
-		<!--<script src="lib/jquery/jquery-2.0.3.min.js"></script>-->
-		<script src="lib/angular/angular.min.js"></script>
-		<script src="lib/angular-route/angular-route.min.js"></script>
-		<script src="lib/underscore/underscore-min.js"></script>
-		
-		<!-- Load leDashboard -->
-		<script src="dist/js/app.js"></script>
-		<script src="dist/js/controllers.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="dist/style/css/flick/jquery-ui-1.10.3.custom.min.css"> -->
 
-	</head>
+    <!-- CSS includes -->
+    <link rel="stylesheet" href="dist/style/screen.css">
 
-	<body>
+    <!-- Load Libraries -->
+    <!--<script src="lib/jquery/jquery-2.0.3.min.js"></script>-->
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-route/angular-route.min.js"></script>
+    <script src="lib/underscore/underscore-min.js"></script>
 
-		<header>
-			<h1><img src="dist/img/dashboard.png"> leDashboard</h1>
-			<div class="menu">
-				<button class="reload_all ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-refresh"></span><span class="ui-button-text">reload all</span></button>
-				<button class="add_feed ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-plusthick"></span><span class="ui-button-text">Add Feed</span></button>
-				<button class="settings ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-wrench"></span><span class="ui-button-text">Settings</span></button>
-				<button class="logout ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary" role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-power"></span><span class="ui-button-text">Logout The mighty Administrator</span></button>
-			</div>
-		</header>
+    <!-- Load leDashboard -->
+    <script src="dist/js/app.js"></script>
+    <script src="dist/js/controllers.js"></script>
 
-		<section id="feeds" ng-controller="FeedListController">
-			
-			<div class="feed" id="{{feed.id}}" ng-repeat="feed in feeds track by $index"  ng-controller="FeedController">
-				<span class="buttons">
-					<button ng-click="reload()">reload</button>
-				</span>
-				<h2><a href="{{feed.url}}" target="_blank">{{feed.title}}</a></h2>
-				<div class="loading">
-					<ul>
-						<li ng-repeat="item in feeditems" ng-class="display">
-					
-							<i ng-click="toggle( item );"></i>
-							<a href="{{item.permalink}}" target="_blank">{{item.title}}</a>
-							<p ng-show="item.isOpen" >{{item.description}}</p>
-							
-						</li>
-					</ul>
-				</div>
-			</div>
-			
-		</section>
-		
-		<footer>
-			<p>2012, <a href="http://campino2k.de/">Christian Jung</a> | Fork me on <a href="http://github.com/campino2k/leDashboard">Github</a> | Dashboard Icon <a href="http://creativecommons.org/licenses/by/3.0/">CC-BY</a> from <a href="http://www.doublejdesign.co.uk/products-page/icons/super-mono-icons/">Double-J Design's "Super Mono" Iconset</a></p>
-		</footer>
-   
-	</body>
+</head>
+
+<body>
+
+<header>
+    <h1><img src="dist/img/dashboard.png"> leDashboard</h1>
+
+    <div class="menu">
+        <button class="reload_all ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary"
+                role="button" aria-disabled="false"><span class="ui-button-icon-primary ui-icon ui-icon-refresh"></span><span
+                class="ui-button-text">reload all</span></button>
+        <button class="add_feed ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary"
+                role="button" aria-disabled="false"><span
+                class="ui-button-icon-primary ui-icon ui-icon-plusthick"></span><span
+                class="ui-button-text">Add Feed</span></button>
+        <button class="settings ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary"
+                role="button" aria-disabled="false"><span
+                class="ui-button-icon-primary ui-icon ui-icon-wrench"></span><span
+                class="ui-button-text">Settings</span></button>
+        <button class="logout ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-primary"
+                role="button" aria-disabled="false"><span
+                class="ui-button-icon-primary ui-icon ui-icon-power"></span><span class="ui-button-text">Logout The mighty Administrator</span>
+        </button>
+    </div>
+</header>
+
+<section id="feeds" ng-controller="FeedListController">
+
+    <div class="feed" id="{{feed.id}}" ng-repeat="feed in feeds track by $index" ng-controller="FeedController">
+
+            <span class="buttons" ng-show="!edit_mode">
+                <button ng-click="reload()">reload</button>
+                <button ng-click="edit()">edit</button>
+            </span>
+
+        <h2><a href="{{feed.url}}" target="_blank">{{feed.title}}</a></h2>
+
+        <div class="show" ng-show="!edit_mode">
+            <div class="loading">
+                <ul>
+                    <li ng-repeat="item in feeditems" ng-class="display">
+
+                        <i ng-click="toggle( item );"></i>
+                        <a href="{{item.permalink}}" target="_blank">{{item.title}}</a>
+
+                        <p ng-show="item.isOpen">{{item.description}}</p>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="edit" ng-show="edit_mode">
+            <fieldset>
+                <legend>Edit</legend>
+                <input name="id" ng-model="feed.id">
+                <input name="title" ng-model="feed.title">
+                <input name="feedUrl" ng-model="feed.feedUrl">
+                <input name="url" ng-model="feed.url">
+                <input name="entries" type="number" ng-model="feed.entries">
+
+            </fieldset>
+            <button ng-click="save()">save..</button>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <p>2012, <a href="http://campino2k.de/">Christian Jung</a> | Fork me on <a
+            href="http://github.com/campino2k/leDashboard">Github</a> | Dashboard Icon <a
+            href="http://creativecommons.org/licenses/by/3.0/">CC-BY</a> from <a
+            href="http://www.doublejdesign.co.uk/products-page/icons/super-mono-icons/">Double-J Design's "Super Mono"
+        Iconset</a></p>
+</footer>
+
+</body>
 </html>
