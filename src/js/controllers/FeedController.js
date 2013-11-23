@@ -4,8 +4,13 @@
  * @since 2013-10-17 21:52
  */
 
-function FeedController( $scope, $http, $log, $element ){
+function FeedController( $scope, $http, $log, $element, $timeout, $interval ){
 	// default vars
+
+	var reloadInterval;
+	var reloadTrigger;
+
+
 	$scope.edit_mode = false;
 
 	$scope.loadItems = function (){
@@ -66,10 +71,26 @@ function FeedController( $scope, $http, $log, $element ){
 	};
 
 	$scope.$on( 'reload', function ( event, feedsToReload ){
-		if( _.indexOf( feedsToReload, $scope.feed.id ) > -1 ) {
-			$scope.reload();
-		}
-	});
+		if ( _.indexOf( feedsToReload, $scope.feed.id ) > -1 ) {
 
-	$scope.loadItems()
+			/*
+			 Simulate a callback for the broadcast reciever with $setTimeout
+			 This solves a racing condition where the reload is fired BEFORE
+			 the feeds places have changed
+			 */
+			reloadTrigger = $timeout( function (){
+				$scope.reload();
+			}, 0 )
+		}
+	} );
+
+	$scope.loadItems();
+
+	reloadInterval = $interval(function(){
+		$scope.reload();
+
+		/*
+		TODO: Make this configurable
+		 */
+	}, (1000*60*5))
 }
