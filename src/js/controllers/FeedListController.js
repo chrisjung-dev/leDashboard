@@ -23,7 +23,7 @@ function FeedListController( $scope, $http, $log ){
 		var indexTo = indexFrom > 0 ? indexFrom - 1 : indexFrom;
 
 		if ( indexFrom !== indexTo ) {
-			this.feeds.move( indexFrom, indexTo )
+			this.feeds.move( indexFrom, indexTo );
 
 			$scope.$broadcast( 'reload', [
 				this.feeds[ indexFrom ].id,
@@ -38,8 +38,7 @@ function FeedListController( $scope, $http, $log ){
 		$log.log( 'move right' )
 
 		var indexFrom = _.indexOf( this.feeds, this.feed );
-		var indexTo = indexFrom > 0 ? indexFrom - 1 : indexFrom;
-		var that = this;
+		var indexTo = indexFrom < this.feeds.length ? indexFrom + 1 : indexFrom;
 
 		if ( indexFrom !== indexTo ) {
 			this.feeds.move( indexFrom, indexTo );

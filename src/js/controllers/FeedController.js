@@ -10,7 +10,7 @@ function FeedController( $scope, $http, $log, $element, $timeout, $interval ){
 	var reloadInterval;
 	var reloadTrigger;
 
-
+	$scope.reloadTime = 5;
 	$scope.edit_mode = false;
 
 	$scope.loadItems = function (){
@@ -92,5 +92,5 @@ function FeedController( $scope, $http, $log, $element, $timeout, $interval ){
 		/*
 		TODO: Make this configurable
 		 */
-	}, (1000*60*5))
+	}, (1000*60* $scope.reloadTime))
 }
