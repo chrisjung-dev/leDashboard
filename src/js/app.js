@@ -5,7 +5,7 @@
  */
 var leDashboard = angular.module( 'leDashboard', [
 		'ngRoute',
-		'ngAnimate',
+		//'ngAnimate',
 		'leDashboardControllers'
 	] )
 	.run( function ( $log ){
@@ -30,3 +30,4 @@ var leDashboard = angular.module( 'leDashboard', [
  }
  ]);
  */
+
