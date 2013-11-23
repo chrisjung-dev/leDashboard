@@ -4,9 +4,22 @@
  * @since 2013-10-17 21:52
  */
 
-function FeedListController ( $scope, $http ){
-	$scope.load = $http.get( 'read_feed_config.php' )
-		.success(function( data ){
-		$scope.feeds = data;
-	});
+function FeedListController( $scope, $http, $log ){
+	$scope.load = function (){
+		$http
+			.get( 'read_feed_config.php' )
+			.success( function ( data ){
+				$scope.feeds = data;
+			} );
+	};
+
+	$scope.moveleft = function (){
+		$log.log( 'move left' )
+	};
+
+	$scope.moveright = function (){
+		$log.log( 'move right' )
+	};
+	// init loading
+	$scope.load();
 }

@@ -9,7 +9,10 @@ var leDashboard = angular.module( 'leDashboard', [
 		'leDashboardControllers'
 	] )
 	.run( function ( $log ){
+		// Main Init function
+
 		$log.log( 'leDashboard läuft...' );
+
 	} );
 
 /*

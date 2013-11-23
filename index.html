@@ -15,7 +15,7 @@
     <!--<script src="lib/jquery/jquery-2.0.3.min.js"></script>-->
     <script src="lib/angular/angular.min.js"></script>
     <script src="lib/angular-route/angular-route.min.js"></script>
-    <script src="lib/angular-route/angular-animate.min.js"></script>
+    <script src="lib/angular-animate/angular-animate.min.js"></script>
     <script src="lib/underscore/underscore-min.js"></script>
 
     <!-- Load leDashboard -->
@@ -53,8 +53,10 @@
     <div class="feed" id="{{feed.id}}" ng-repeat="feed in feeds track by $index" ng-controller="FeedController">
 
             <span class="buttons" ng-show="!edit_mode">
+                <button ng-click="moveleft()">&larr;</button>
                 <button ng-click="reload()">reload</button>
                 <button ng-click="edit()">edit</button>
+                <button ng-click="moveright()">&rarr;</button>
             </span>
 
         <h2><a href="{{feed.url}}" target="_blank">{{feed.title}}</a></h2>
