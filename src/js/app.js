@@ -5,6 +5,7 @@
  */
 var leDashboard = angular.module( 'leDashboard', [
 		'ngRoute',
+		'ngAnimate',
 		'leDashboardControllers'
 	] )
 	.run( function ( $log ){

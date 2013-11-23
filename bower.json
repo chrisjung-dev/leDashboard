@@ -15,5 +15,8 @@
     "angular-route": ">= 1.2.0",
     "angular": ">= 1.2.0",
     "underscore": "~1.5.2"
+  },
+  "resolutions": {
+    "angular": "~1.2.2"
   }
 }
