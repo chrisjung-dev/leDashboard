@@ -9,7 +9,7 @@ $feeds = $_POST[ 'settings' ];
 
 // Datei schreiben mit PHP
 // Name der Datei, die beschrieben werden soll, festlegen.
-$file_name = 'config/settings.json';
+$file_name = '../config/settings.json';
 
 // Datei zum Schreiben öffen. Existiert die Datei bereits,
 // so wird diese überschrieben, da der File Pointer automatisch

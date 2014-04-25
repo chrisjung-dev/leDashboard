@@ -53,7 +53,7 @@ Feed = function( _id, _config ) {
 	var get_single_feed_content = function() {
 		
 		$.ajax({
-			url: 'get_feed.php',
+			url: leDashboard.Urls.readFeed,
 			dataType: 'json',
 			data: {
 				'feed_id' : _self.id,

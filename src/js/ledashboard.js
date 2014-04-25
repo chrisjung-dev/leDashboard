@@ -24,7 +24,7 @@ jQuery(function(){
 	 * Load general settings
 	 */
 	var $get_settings = jQuery.ajax({
-		url: 'read_settings.php',
+		url: leDashboard.Urls.readSettings,
 		dataType: 'json',
 		async: false,
 		success: function( json ) {
@@ -37,7 +37,7 @@ jQuery(function(){
 	/**
 	 *	Load feed config from json
 	 */
-	var $get_feeds = jQuery.getJSON( 'read_feed_config.php', function( json ) {
+	var $get_feeds = jQuery.getJSON( leDashboard.Urls.readFeedConfig, function( json ) {
 		
 		$loaded_feeds = json;
 
@@ -222,7 +222,7 @@ var get_active_feeds = function(){
 var save_feed_config = function( _feeds ) {
 
 	jQuery.ajax({
-		url: 'save_feed_config.php',
+		url: leDashboard.Urls.writeFeedConfig,
 		type: 'POST',
 		dataType: 'json',
 		data: {
@@ -257,7 +257,7 @@ var save_feed_config = function( _feeds ) {
 
 var save_settings = function( _settings ) {
 	jQuery.ajax({
-		url: 'save_settings.php',
+		url: leDashboard.Urls.writeSettings,
 		type: 'POST',
 		data: {
 			'settings': JSON.stringify( _settings )

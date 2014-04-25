@@ -12,4 +12,5 @@
 	<script src="src/js/form.feed_add.js"></script>
 	<script src="src/js/form.settings.js"></script>
 	<script src="src/js/ledashboard.js"></script>
+	<script src="src/js/ledashboard.urls.js"></script>
 </html>
