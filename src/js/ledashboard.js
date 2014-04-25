@@ -3,8 +3,8 @@ jQuery(function(){
 	/**
 	 * Load content parts
 	 */
-	jQuery.get( 'show/feed_add.html', function(data){ jQuery( 'body' ).append( data )} );
-	jQuery.get( 'show/settings.html', function(data){ jQuery( 'body' ).append( data )} );
+ 	//jQuery.get( 'show/feed_add.hbs', function(data){ jQuery( 'body' ).append( data )} );
+	//jQuery.get( 'show/settings.hbs', function(data){ jQuery( 'body' ).append( data )} );
 
 	/**
 	 * Make Feeds sortable
