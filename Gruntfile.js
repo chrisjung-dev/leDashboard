@@ -154,7 +154,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-recess');
 
 	// Default task
-	grunt.registerTask('default', [ 'recess:dev', 'copy:images' ]);
+	grunt.registerTask('default', [ 'recess:dev', 'copy:images', 'handlebars' ]);
 	//grunt.registerTask('production', ['less:prod', 'concat:prod']);
 
 };

@@ -116,7 +116,7 @@ Feed = function( _id, _config ) {
 	 *	handle clicks on the feed items
 	 */
 	this.clickFeedItem = function( _this ) {
-		console.log( 'clicked item' );
+		//console.log( 'clicked item' );
 		var $item = $( this );
 
 		if( ! $item.hasClass( 'opened' ) ) {

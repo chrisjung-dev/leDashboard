@@ -9,7 +9,7 @@ var open_settings_form = function() {
 	$settings_form.dialog( 'open' );
 };
 
-var $settings_form = $( '#settings-form' ).dialog({
+var $settings_form = $( leDashboard.Templates['settings']() ).dialog({
 	autoOpen: false,
 	width: 350,
 	modal: true,

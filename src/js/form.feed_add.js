@@ -8,7 +8,6 @@ var $id = $( '#id' ),
 	$feed_url = $( '#feed_url' ),
 	$site_url = $( '#site_url' ),
 	$entries = $( '#entries' ),
-
 	password = $( '#password' ),
 	allFields =	$( [] )
 				.add( $id )
@@ -53,7 +52,7 @@ function checkRegexp( o, regexp, n ) {
 	}
 }
 
-var new_feed_form = $( '#new-feed-form' ).dialog({
+var new_feed_form = $( leDashboard.Templates['feed_add']() ).dialog({
 	autoOpen: false,
 //	height: 500,
 	width: 350,
