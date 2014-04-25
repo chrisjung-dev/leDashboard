@@ -2,7 +2,7 @@
 	/*
 	 * import simplepie for feed handling
 	 */
-	require_once('../lib/simplepie_1.3.1.mini.php');
+	require_once('lib/simplepie_1.3.1.mini.php');
 
 	/*
 	 *	todo: sanatize the variables
