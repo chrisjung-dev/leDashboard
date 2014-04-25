@@ -7,7 +7,7 @@ if(	$active_user === false
 	&& !isset( $_POST[ 'user_name' ] ) 
 	&& !isset( $_POST[ 'password' ] ) ){
 
-	include( 'show/login.php' );
+	include('inc/show/login.php');
 
 } elseif ( $active_user === false 
 			&& isset( $_POST[ 'user_name' ] ) 
@@ -21,5 +21,5 @@ if(	$active_user === false
 	header("Location: http://$host$uri/$extra");
 
 } else { 
-	include( 'show/feeds.php' )	;
+	include('inc/show/feeds.php');
 } ?>
