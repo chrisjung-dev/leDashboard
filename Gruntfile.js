@@ -85,16 +85,16 @@ module.exports = function(grunt) {
 		/**
 		 * compile templates
 		 */
-		jst: {
+		handlebars: {
 			compile: {
 				options: {
-					namespace: "tpl",
-					processName: function( filename ) {
+                    namespace: 'leDashboard.Templates',
+                    processName: function( filename ) {
 						return filename.split( '/' ).pop().split( '.' ).slice( 0, -1 ).join( '.' );
 					}
 				},
 				files: {
-					"dist/js/templates.js": ["src/js/templates/**/*.html"]
+					"dist/js/templates.js": ["src/templates/**/*.hbs"]
 				}
 			}
 		},
@@ -120,7 +120,17 @@ module.exports = function(grunt) {
 				src: "**",
 				cwd: "src/style/css/",
 				dest: "dist/style/css/"
-			}
+			},
+            jslibs: {
+                expand: true,
+                src:[
+                    'lib/jquery/dist/jquery.min.js',
+                    'lib/jquery-ui/ui/minified/jquery-ui.min.js',
+                    'lib/underscore/underscore-min.js',
+                    'lib/handlebars/handlebars.runtime.min.js'
+                ],
+                dest: 'dist/'
+            }
 		},
 		/*
 			Watch less files
@@ -140,7 +150,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-jst');
+	grunt.loadNpmTasks('grunt-contrib-handlebars');
 	grunt.loadNpmTasks('grunt-recess');
 
 	// Default task
